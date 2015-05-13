@@ -1,6 +1,6 @@
 {
-    "main": "bin/maxbot",
-    "output": "bin/maxbot.phar",
+    "main": "bin/slackyboy",
+    "output": "bin/slackyboy.phar",
     "directories": [
         "src",
         "vendor"
