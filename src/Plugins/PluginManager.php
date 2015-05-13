@@ -29,6 +29,11 @@ class PluginManager
     {
     }
 
+    public function getPlugins()
+    {
+        return $this->plugins;
+    }
+
     /**
      * Dynamically loads a plugin by name.
      *

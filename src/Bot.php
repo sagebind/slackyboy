@@ -135,6 +135,18 @@ class Bot
         $this->rtm->disconnect();
     }
 
+    public function restart()
+    {
+        $this->quit();
+        $this->log->info('Restarting now');
+
+        global $argv;
+        if (!pcntl_fork()) {
+            // We only care about the child fork
+            pcntl_exec($argv[0], array_slice($argv, 1));
+        }
+    }
+
     protected function getConfigPath()
     {
         return getenv('HOME').'/.slackyboy.json';
