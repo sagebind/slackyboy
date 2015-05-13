@@ -3,6 +3,7 @@ namespace Slackyboy\Plugins\AdminControl;
 
 use Slackyboy\Message;
 use Slackyboy\Plugins\AbstractPlugin;
+use Slackyboy\Slack\Channel;
 use Slackyboy\Slack\User;
 
 class Plugin extends AbstractPlugin
@@ -23,7 +24,7 @@ class Plugin extends AbstractPlugin
                 $this->bot->restart();
             }
 
-            if ($message->matchesAll('/users/')) {
+            if ($message->matchesAll('/users/i')) {
                 $users = $this->bot->getSlackClient()->getUsers();
 
                 $text = '';
@@ -42,11 +43,48 @@ class Plugin extends AbstractPlugin
 
                 $this->bot->say($responseText, $message->getChannel());
             }
+
+            if ($message->matchesAll('/stats|statistics/i')) {
+                $this->showStats($message->getChannel());
+            }
         });
     }
 
     public function userIsAdmin(User $user)
     {
         return false;
+    }
+
+    public function showStats(Channel $channel)
+    {
+        $startTime = new \DateTime();
+        $startTime->setTimestamp($_SERVER['REQUEST_TIME']);
+        $uptime = $startTime->diff(new \DateTime('now'));
+
+        $text = sprintf("Bot uptime: %s\nCurrent memory usage: %s\nPeak memory usage: %s\nPHP version: %s",
+            $uptime->format('%d days, %h hours, %i minutes, %s seconds'),
+            $this->formatBytes(memory_get_usage()),
+            $this->formatBytes(memory_get_peak_usage()),
+            phpversion()
+        );
+        $this->bot->say($text, $channel);
+    }
+
+    /**
+     * Formats a number of bytes to a user-friendly string.
+     *
+     * Chris Jester-Young's implementation.
+     *
+     * @param int $size      The size in bytes.
+     * @param int $precision The precision level.
+     *
+     * @return string A formatted string describing the size.
+     */
+    protected function formatBytes($size, $precision = 2)
+    {
+        $base = log($size, 1024);
+        $suffixes = array('', 'k', 'M', 'G', 'T');
+
+        return round(pow(1024, $base - floor($base)), $precision).' '.$suffixes[floor($base)].'B';
     }
 }
