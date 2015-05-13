@@ -1,0 +1,13 @@
+{
+    "main": "bin/maxbot",
+    "output": "bin/maxbot.phar",
+    "directories": [
+        "src",
+        "vendor"
+    ],
+    "stub": true,
+    "chmod": "0755",
+    "compression": "BZ2",
+    "algorithm": "SHA512",
+    "git-version": "@VERSION"
+}
