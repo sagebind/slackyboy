@@ -10,14 +10,11 @@
     }],
     "minimum-stability": "dev",
     "require": {
-        "ext-pcntl": "*",
-        "ext-posix": "*",
         "evenement/evenement": "2.0.*",
         "guzzlehttp/guzzle": "~5.0",
         "hassankhan/config": "0.8.*",
         "pixeloution/true-random": "~1.0",
         "devristo/phpws": "dev-master",
-        "gabrielbull/websocket-client": "dev-master",
         "monolog/monolog": "~1.13@dev"
     },
     "autoload": {
