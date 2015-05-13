@@ -3,6 +3,7 @@ namespace Slackyboy;
 
 use Evenement\EventEmitterTrait;
 use Slackyboy\Slack\ApiClient;
+use Slackyboy\Slack\Channel;
 use Slackyboy\Slack\RealTimeMessagingClient;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
@@ -86,7 +87,7 @@ class Bot
         }
 
         // load config
-        $this->config = new Config(dirname(__DIR__).'/maxbot.json');
+        $this->config = new Config(dirname(__DIR__).'/slackyboy.json');
     }
 
     public function loadPlugins()
@@ -106,10 +107,10 @@ class Bot
         $this->rtm->on('message', function ($data) {
 
             $this->log->info('Noticed message', [
-                'text' => $data->text,
+                'text' => $data['text'],
             ]);
 
-            $message = new Message($data->text, $data->channel);
+            $message = Message::fromData($this->client, $data);
             $this->emit('message', [$message]);
 
             if ($message->matches('/'.$this->botUser->getUsername().'/i')) {
@@ -121,7 +122,7 @@ class Bot
         $this->rtm->listen();
     }
 
-    public function say($text, $channel)
+    public function say($text, Channel $channel)
     {
         $this->log->info('Sending new message');
         $this->rtm->send($text, $channel);
@@ -135,11 +136,11 @@ class Bot
 
     protected function getConfigPath()
     {
-        return getenv('HOME').'/.maxbot.json';
+        return getenv('HOME').'/.slackyboy.json';
     }
 
     protected function createDefaultConfig()
     {
-        copy(dirname(__DIR__).'/maxbot.json', $this->getConfigPath());
+        copy(dirname(__DIR__).'/slackyboy.json', $this->getConfigPath());
     }
 }

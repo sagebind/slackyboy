@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "12f1326e3e371e22cf07de60d0a923c3",
+    "hash": "927ae086b6f427ea2800ea285ee41239",
     "packages": [
         {
             "name": "devristo/phpws",
@@ -88,52 +88,6 @@
                 "event-emitter"
             ],
             "time": "2014-07-09 21:08:03"
-        },
-        {
-            "name": "gabrielbull/websocket-client",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/gabrielbull/php-websocket-client.git",
-                "reference": "270ff708e9da1c6d94310a02c35c24d15c31323b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/gabrielbull/php-websocket-client/zipball/270ff708e9da1c6d94310a02c35c24d15c31323b",
-                "reference": "270ff708e9da1c6d94310a02c35c24d15c31323b",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "react/socket": "0.4.*"
-            },
-            "require-dev": {
-                "cboden/ratchet": "dev-master",
-                "phpunit/phpunit": "~4"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "WebSocketClient\\": "src/WebSocketClient"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Gabriel Bull",
-                    "email": "me@gabrielbull.com"
-                }
-            ],
-            "description": "A simple PHP WebSocket Client",
-            "homepage": "https://github.com/gabrielbull/php-websocket-client",
-            "keywords": [
-                "client",
-                "websocket"
-            ],
-            "time": "2015-05-04 14:07:32"
         },
         {
             "name": "guzzle/guzzle",
@@ -808,12 +762,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/socket-client.git",
-                "reference": "5f41caaba9bed543dea87df3f3d98b26e72ae0e3"
+                "reference": "720ffc6eb259856a49ddedca4c094644b631219b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/socket-client/zipball/5f41caaba9bed543dea87df3f3d98b26e72ae0e3",
-                "reference": "5f41caaba9bed543dea87df3f3d98b26e72ae0e3",
+                "url": "https://api.github.com/repos/reactphp/socket-client/zipball/720ffc6eb259856a49ddedca4c094644b631219b",
+                "reference": "720ffc6eb259856a49ddedca4c094644b631219b",
                 "shasum": ""
             },
             "require": {
@@ -842,7 +796,7 @@
             "keywords": [
                 "Socket"
             ],
-            "time": "2015-04-12 14:39:20"
+            "time": "2015-05-13 01:58:55"
         },
         {
             "name": "react/stream",
@@ -1343,14 +1297,10 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "devristo/phpws": 20,
-        "gabrielbull/websocket-client": 20,
         "monolog/monolog": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": {
-        "ext-pcntl": "*",
-        "ext-posix": "*"
-    },
+    "platform": [],
     "platform-dev": []
 }

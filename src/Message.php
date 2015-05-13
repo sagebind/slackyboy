@@ -10,7 +10,7 @@ class Message extends Slack\Message
     public function matches($patterns)
     {
         foreach (func_get_args() as $pattern) {
-            if (preg_match($pattern, $this->text) === 1) {
+            if (preg_match($pattern, $this->getText()) === 1) {
                 return true;
             }
         }
