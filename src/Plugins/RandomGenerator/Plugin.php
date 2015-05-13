@@ -15,7 +15,7 @@ class Plugin extends AbstractPlugin
 
         // attach event handlers
         $this->bot->on('message', function (Message $message) {
-            if ($message->matches('/random/')) {
+            if ($message->matchesAll('/random/')) {
                 $random = $this->generator->integers(0, 100000, 1);
 
                 $this->bot->say('Here\'s a random number: '.$random[0], $message->getChannel());

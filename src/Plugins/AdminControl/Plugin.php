@@ -11,13 +11,13 @@ class Plugin extends AbstractPlugin
     {
         // attach event handlers
         $this->bot->on('mention', function (Message $message) {
-            if ($message->matches('/quit/')) {
+            if ($message->matchesAll('/quit/')) {
                 $this->bot->say('Goodbye.', $message->getChannel());
 
                 $this->bot->quit();
             }
 
-            if ($message->matches('/users/')) {
+            if ($message->matchesAll('/users/')) {
                 $users = $this->bot->getSlackClient()->getUsers();
 
                 $text = '';

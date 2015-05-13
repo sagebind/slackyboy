@@ -105,15 +105,16 @@ class Bot
         $this->rtm = new RealTimeMessagingClient($this->client);
 
         $this->rtm->on('message', function ($data) {
+            $message = Message::fromData($this->client, $data);
 
             $this->log->info('Noticed message', [
-                'text' => $data['text'],
+                'text' => $message->getText(),
             ]);
 
-            $message = Message::fromData($this->client, $data);
             $this->emit('message', [$message]);
 
-            if ($message->matches('/'.$this->botUser->getUsername().'/i')) {
+            if ($message->matchesAny('/'.$this->botUser->getUsername().'/i')) {
+                $this->log->debug('Mentioned in message', [$message]);
                 $this->emit('mention', [$message]);
             }
         });
