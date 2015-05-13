@@ -17,8 +17,8 @@ class Plugin extends AbstractPlugin
                 $this->bot->quit();
             }
 
-            if ($message->matchesAll('/restart/')) {
-                $this->bot->say('Goodbye. I\'ll be back in a jiffy.', $message->getChannel());
+            if ($message->matchesAll('/restart|reboot/i')) {
+                $this->bot->say('I am rebooting my systems. I\'ll be back momentarily.', $message->getChannel());
 
                 $this->bot->restart();
             }
