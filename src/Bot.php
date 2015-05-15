@@ -1,25 +1,42 @@
 <?php
 namespace Slackyboy;
 
-use Evenement\EventEmitterTrait;
-use Slackyboy\Slack\RealTimeClient;
-use Slackyboy\Slack\Channel;
+use Evenement\EventEmitter;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Noodlehaus\Config;
 use React\EventLoop;
+use Slackyboy\Slack\Channel;
+use Slackyboy\Slack\RealTimeClient;
 
 /**
  * Main bot object that connects to Slack and emits useful bot-wide events.
  */
-class Bot
+class Bot extends EventEmitter
 {
-    use EventEmitterTrait;
-
+    /**
+     * @var Config A configuration object.
+     */
     protected $config;
+
+    /**
+     * @var RealTimeClient A Slack real-time messaging client.
+     */
     protected $client;
+
+    /**
+     * @var Plugins\PluginManager The bot-wide plugin manager.
+     */
     protected $plugins;
+
+    /**
+     * @var User The user the bot is running as.
+     */
     protected $botUser;
+
+    /**
+     * @var LoopInterface A React event loop.
+     */
     protected $loop;
 
     /**
@@ -72,11 +89,19 @@ class Bot
         return $this->config;
     }
 
+    /**
+     * Gets the Slack client instance being used.
+     *
+     * @return RealTimeClient An active Slack client.
+     */
     public function getSlackClient()
     {
         return $this->client;
     }
 
+    /**
+     * Loads configuration from file.
+     */
     public function loadConfig()
     {
         // if no config file exists, create the default
@@ -88,6 +113,9 @@ class Bot
         $this->config = new Config(dirname(__DIR__).'/slackyboy.json');
     }
 
+    /**
+     * Loads all plugins specified in configuration.
+     */
     public function loadPlugins()
     {
         // create plugin manager and load plugins
@@ -98,6 +126,9 @@ class Bot
         }
     }
 
+    /**
+     * Runs the bot.
+     */
     public function run()
     {
         $this->client->on('message', function ($data) {
@@ -124,18 +155,30 @@ class Bot
         $this->loop->run();
     }
 
+    /**
+     * Sends a message to a channel.
+     *
+     * @param string  $text    The message text to send.
+     * @param Channel $channel The channel to send the message to.
+     */
     public function say($text, Channel $channel)
     {
         $this->log->info('Sending new message');
         $this->client->send($text, $channel);
     }
 
+    /**
+     * Quits the bot.
+     */
     public function quit()
     {
         $this->log->info('Quitting now');
         $this->client->disconnect();
     }
 
+    /**
+     * Restarts the bot process.
+     */
     public function restart()
     {
         $this->quit();
@@ -148,13 +191,27 @@ class Bot
         }
     }
 
+    /**
+     * Gets the path to the config file.
+     *
+     * @return string The config file path.
+     */
     protected function getConfigPath()
     {
         return getenv('HOME').'/.slackyboy.json';
     }
 
+    /**
+     * Creates the default config file if it does not exist.
+     */
     protected function createDefaultConfig()
     {
+        // delete existing config
+        if (!is_file($this->getConfigPath())) {
+            unlink($this->getConfigPath());
+        }
+
+        // copy packaged default into config location
         copy(dirname(__DIR__).'/slackyboy.json', $this->getConfigPath());
     }
 }
