@@ -1,7 +1,7 @@
 <?php
 namespace Slackyboy;
 
-class Message extends Slack\Message
+class Message extends \Slack\Message
 {
     public function isDirect()
     {

@@ -3,8 +3,8 @@ namespace Slackyboy\Plugins\AdminControl;
 
 use Slackyboy\Message;
 use Slackyboy\Plugins\AbstractPlugin;
-use Slackyboy\Slack\Channel;
-use Slackyboy\Slack\User;
+use Slack\Channel;
+use Slack\User;
 
 class Plugin extends AbstractPlugin
 {

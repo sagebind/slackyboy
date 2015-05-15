@@ -6,8 +6,8 @@ use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Noodlehaus\Config;
 use React\EventLoop;
-use Slackyboy\Slack\Channel;
-use Slackyboy\Slack\RealTimeClient;
+use Slack\Channel;
+use Slack\RealTimeClient;
 
 /**
  * Main bot object that connects to Slack and emits useful bot-wide events.

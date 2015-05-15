@@ -4,8 +4,51 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "927ae086b6f427ea2800ea285ee41239",
+    "hash": "be0cdb19bef3276e0b397af90620b04a",
     "packages": [
+        {
+            "name": "coderstephen/slack-client",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/coderstephen/slack-client.git",
+                "reference": "b2f8d5e380fc537bbbf29779fb18745898deaec3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/coderstephen/slack-client/zipball/b2f8d5e380fc537bbbf29779fb18745898deaec3",
+                "reference": "b2f8d5e380fc537bbbf29779fb18745898deaec3",
+                "shasum": ""
+            },
+            "require": {
+                "devristo/phpws": "dev-master",
+                "evenement/evenement": "2.0.*",
+                "guzzlehttp/guzzle": "~5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Slack\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Stephen Coakley",
+                    "email": "me@stephencoakley.com"
+                }
+            ],
+            "description": "A better Slack client, with RTM API support",
+            "keywords": [
+                "api",
+                "realtime",
+                "slack"
+            ],
+            "time": "2015-05-15 21:08:58"
+        },
         {
             "name": "devristo/phpws",
             "version": "dev-master",
@@ -592,12 +635,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/dns.git",
-                "reference": "e1eaadb8ac637e61d1b642ebed37fa46c568ae9d"
+                "reference": "555bb6db5759ef33b20ad33909f82f4bdf989599"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/dns/zipball/e1eaadb8ac637e61d1b642ebed37fa46c568ae9d",
-                "reference": "e1eaadb8ac637e61d1b642ebed37fa46c568ae9d",
+                "url": "https://api.github.com/repos/reactphp/dns/zipball/555bb6db5759ef33b20ad33909f82f4bdf989599",
+                "reference": "555bb6db5759ef33b20ad33909f82f4bdf989599",
                 "shasum": ""
             },
             "require": {
@@ -626,7 +669,7 @@
                 "dns",
                 "dns-resolver"
             ],
-            "time": "2014-08-23 11:13:50"
+            "time": "2015-05-15 03:40:40"
         },
         {
             "name": "react/event-loop",
@@ -762,12 +805,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/socket-client.git",
-                "reference": "720ffc6eb259856a49ddedca4c094644b631219b"
+                "reference": "98b609589281b2cc717c04e87b1efd9a626001b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/socket-client/zipball/720ffc6eb259856a49ddedca4c094644b631219b",
-                "reference": "720ffc6eb259856a49ddedca4c094644b631219b",
+                "url": "https://api.github.com/repos/reactphp/socket-client/zipball/98b609589281b2cc717c04e87b1efd9a626001b5",
+                "reference": "98b609589281b2cc717c04e87b1efd9a626001b5",
                 "shasum": ""
             },
             "require": {
@@ -796,7 +839,7 @@
             "keywords": [
                 "Socket"
             ],
-            "time": "2015-05-13 01:58:55"
+            "time": "2015-05-13 14:09:13"
         },
         {
             "name": "react/stream",
@@ -1296,8 +1339,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "devristo/phpws": 20,
-        "monolog/monolog": 20
+        "coderstephen/slack-client": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
