@@ -1,7 +1,7 @@
 <?php
 namespace Slackyboy;
 
-use Evenement\EventEmitter;
+use Evenement\EventEmitterTrait;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Noodlehaus\Config;
@@ -12,8 +12,10 @@ use Slackyboy\Slack\RealTimeClient;
 /**
  * Main bot object that connects to Slack and emits useful bot-wide events.
  */
-class Bot extends EventEmitter
+class Bot
 {
+    use EventEmitterTrait;
+
     /**
      * @var Config A configuration object.
      */
