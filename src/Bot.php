@@ -2,12 +2,12 @@
 namespace Slackyboy;
 
 use Evenement\EventEmitterTrait;
-use Slackyboy\Slack\ApiClient;
+use Slackyboy\Slack\RealTimeClient;
 use Slackyboy\Slack\Channel;
-use Slackyboy\Slack\RealTimeMessagingClient;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Noodlehaus\Config;
+use React\EventLoop;
 
 /**
  * Main bot object that connects to Slack and emits useful bot-wide events.
@@ -18,9 +18,9 @@ class Bot
 
     protected $config;
     protected $client;
-    protected $rtm;
     protected $plugins;
     protected $botUser;
+    protected $loop;
 
     /**
      * @var Logger A logger for all bot-related logs.
@@ -45,13 +45,11 @@ class Bot
         // load plugins
         $this->loadPlugins();
 
-        // create an api client
-        $this->client = new ApiClient();
-        $this->client->setToken($this->config->get('slack.token'));
+        $this->loop = EventLoop\Factory::create();
 
-        // get the Slack bot user info
-        $this->botUser = $this->client->getAuthedUser();
-        $this->log->info('Bot user name is configured as '.$this->botUser->getUsername());
+        // create an api client
+        $this->client = new RealTimeClient($this->loop);
+        $this->client->setToken($this->config->get('slack.token'));
     }
 
     /**
@@ -102,10 +100,8 @@ class Bot
 
     public function run()
     {
-        $this->rtm = new RealTimeMessagingClient($this->client);
-
-        $this->rtm->on('message', function ($data) {
-            $message = Message::fromData($this->client, $data);
+        $this->client->on('message', function ($data) {
+            $message = new Message($this->client, $data);
 
             $this->log->info('Noticed message', [
                 'text' => $message->getText(),
@@ -119,20 +115,25 @@ class Bot
             }
         });
 
-        $this->rtm->connect();
-        $this->rtm->listen();
+        $this->client->connect();
+
+        // get the Slack bot user info
+        $this->botUser = $this->client->getAuthedUser();
+        $this->log->info('Bot user name is configured as '.$this->botUser->getUsername());
+
+        $this->loop->run();
     }
 
     public function say($text, Channel $channel)
     {
         $this->log->info('Sending new message');
-        $this->rtm->send($text, $channel);
+        $this->client->send($text, $channel);
     }
 
     public function quit()
     {
         $this->log->info('Quitting now');
-        $this->rtm->disconnect();
+        $this->client->disconnect();
     }
 
     public function restart()
