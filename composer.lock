@@ -1,29 +1,36 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "be0cdb19bef3276e0b397af90620b04a",
+    "hash": "c80757940b0625171fa2c2861c9afc63",
     "packages": [
         {
             "name": "coderstephen/slack-client",
-            "version": "dev-master",
+            "version": "v0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/coderstephen/slack-client.git",
-                "reference": "b2f8d5e380fc537bbbf29779fb18745898deaec3"
+                "reference": "9590ad78276efdcb739cee156832a399034c896d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/coderstephen/slack-client/zipball/b2f8d5e380fc537bbbf29779fb18745898deaec3",
-                "reference": "b2f8d5e380fc537bbbf29779fb18745898deaec3",
+                "url": "https://api.github.com/repos/coderstephen/slack-client/zipball/9590ad78276efdcb739cee156832a399034c896d",
+                "reference": "9590ad78276efdcb739cee156832a399034c896d",
                 "shasum": ""
             },
             "require": {
                 "devristo/phpws": "dev-master",
                 "evenement/evenement": "2.0.*",
-                "guzzlehttp/guzzle": "~5.0"
+                "guzzlehttp/guzzle": "~6.0",
+                "php": ">=5.5",
+                "react/event-loop": "^0.4.1",
+                "react/promise": "^2.2"
+            },
+            "require-dev": {
+                "fzaninotto/faker": "~1.4",
+                "phpunit/phpunit": "~4.6"
             },
             "type": "library",
             "autoload": {
@@ -47,7 +54,7 @@
                 "realtime",
                 "slack"
             ],
-            "time": "2015-05-15 21:08:58"
+            "time": "2015-06-05 18:49:24"
         },
         {
             "name": "devristo/phpws",
@@ -226,21 +233,22 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "5.2.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "475b29ccd411f2fa8a408e64576418728c032cfa"
+                "reference": "a1c986a4bc470a0959a2b1d5bc3e5b945a72dcb5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/475b29ccd411f2fa8a408e64576418728c032cfa",
-                "reference": "475b29ccd411f2fa8a408e64576418728c032cfa",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/a1c986a4bc470a0959a2b1d5bc3e5b945a72dcb5",
+                "reference": "a1c986a4bc470a0959a2b1d5bc3e5b945a72dcb5",
                 "shasum": ""
             },
             "require": {
-                "guzzlehttp/ringphp": "~1.0",
-                "php": ">=5.4.0"
+                "guzzlehttp/promises": "~1.0",
+                "guzzlehttp/psr7": "~1.0",
+                "php": ">=5.5.0"
             },
             "require-dev": {
                 "ext-curl": "*",
@@ -250,10 +258,13 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.0-dev"
+                    "dev-master": "6.0-dev"
                 }
             },
             "autoload": {
+                "files": [
+                    "src/functions.php"
+                ],
                 "psr-4": {
                     "GuzzleHttp\\": "src/"
                 }
@@ -269,7 +280,7 @@
                     "homepage": "https://github.com/mtdowling"
                 }
             ],
-            "description": "Guzzle is a PHP HTTP client library and framework for building RESTful web service clients",
+            "description": "Guzzle is a PHP HTTP client library",
             "homepage": "http://guzzlephp.org/",
             "keywords": [
                 "client",
@@ -280,33 +291,27 @@
                 "rest",
                 "web service"
             ],
-            "time": "2015-01-28 01:03:29"
+            "time": "2015-06-03 19:13:27"
         },
         {
-            "name": "guzzlehttp/ringphp",
+            "name": "guzzlehttp/promises",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/guzzle/RingPHP.git",
-                "reference": "2498ee848cd01639aecdcf3d5a257bace8665b7c"
+                "url": "https://github.com/guzzle/promises.git",
+                "reference": "61f950b4e8bed600f0c54e7a69e9e085bb5e76a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/RingPHP/zipball/2498ee848cd01639aecdcf3d5a257bace8665b7c",
-                "reference": "2498ee848cd01639aecdcf3d5a257bace8665b7c",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/61f950b4e8bed600f0c54e7a69e9e085bb5e76a9",
+                "reference": "61f950b4e8bed600f0c54e7a69e9e085bb5e76a9",
                 "shasum": ""
             },
             "require": {
-                "guzzlehttp/streams": "~3.0",
-                "php": ">=5.4.0",
-                "react/promise": "~2.0"
+                "php": ">=5.5.0"
             },
             "require-dev": {
-                "ext-curl": "*",
                 "phpunit/phpunit": "~4.0"
-            },
-            "suggest": {
-                "ext-curl": "Guzzle will use specific adapters if cURL is present"
             },
             "type": "library",
             "extra": {
@@ -316,8 +321,11 @@
             },
             "autoload": {
                 "psr-4": {
-                    "GuzzleHttp\\Ring\\": "src/"
-                }
+                    "GuzzleHttp\\Promise\\": "src/"
+                },
+                "files": [
+                    "src/functions.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -330,25 +338,32 @@
                     "homepage": "https://github.com/mtdowling"
                 }
             ],
-            "description": "Provides a simple API and specification that abstracts away the details of HTTP into a single PHP function.",
-            "time": "2015-05-01 04:57:09"
+            "description": "Guzzle promises library",
+            "keywords": [
+                "promise"
+            ],
+            "time": "2015-05-28 00:34:40"
         },
         {
-            "name": "guzzlehttp/streams",
+            "name": "guzzlehttp/psr7",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/guzzle/streams.git",
-                "reference": "d1f8a6c55f0f753cfd6f6755856473eb02cedb19"
+                "url": "https://github.com/guzzle/psr7.git",
+                "reference": "e4d917d5f1304af62898f6dbd579dae9912a8b0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/streams/zipball/d1f8a6c55f0f753cfd6f6755856473eb02cedb19",
-                "reference": "d1f8a6c55f0f753cfd6f6755856473eb02cedb19",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/e4d917d5f1304af62898f6dbd579dae9912a8b0c",
+                "reference": "e4d917d5f1304af62898f6dbd579dae9912a8b0c",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4.0"
+                "php": ">=5.4.0",
+                "psr/http-message": "~1.0"
+            },
+            "provide": {
+                "psr/http-message-implementation": "1.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.0"
@@ -356,13 +371,16 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "1.0-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "GuzzleHttp\\Stream\\": "src/"
-                }
+                    "GuzzleHttp\\Psr7\\": "src/"
+                },
+                "files": [
+                    "src/functions.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -375,13 +393,14 @@
                     "homepage": "https://github.com/mtdowling"
                 }
             ],
-            "description": "Provides a simple abstraction over streams of data",
-            "homepage": "http://guzzlephp.org/",
+            "description": "PSR-7 message implementation",
             "keywords": [
-                "Guzzle",
-                "stream"
+                "http",
+                "message",
+                "stream",
+                "uri"
             ],
-            "time": "2015-01-22 00:01:34"
+            "time": "2015-05-29 18:21:02"
         },
         {
             "name": "hassankhan/config",
@@ -446,12 +465,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "bf2bff61743f20a13dc46ff1e3bbd0f19c997d2b"
+                "reference": "77aef55318035d37dbd4e87ea0c37a191f3e766e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/bf2bff61743f20a13dc46ff1e3bbd0f19c997d2b",
-                "reference": "bf2bff61743f20a13dc46ff1e3bbd0f19c997d2b",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/77aef55318035d37dbd4e87ea0c37a191f3e766e",
+                "reference": "77aef55318035d37dbd4e87ea0c37a191f3e766e",
                 "shasum": ""
             },
             "require": {
@@ -462,13 +481,14 @@
                 "psr/log-implementation": "1.0.0"
             },
             "require-dev": {
-                "aws/aws-sdk-php": "~2.4, >2.4.8",
+                "aws/aws-sdk-php": "^2.4.9",
                 "doctrine/couchdb": "~1.0@dev",
                 "graylog2/gelf-php": "~1.0",
-                "php-console/php-console": "~3.1, >3.1.2",
-                "phpunit/phpunit": "~4.0",
-                "raven/raven": "~0.5",
-                "ruflin/elastica": "0.90.*",
+                "php-console/php-console": "^3.1.3",
+                "phpunit/phpunit": "~4.5",
+                "phpunit/phpunit-mock-objects": "2.3.0",
+                "raven/raven": "~0.8",
+                "ruflin/elastica": ">=0.90 <3.0",
                 "swiftmailer/swiftmailer": "~5.3",
                 "videlalvaro/php-amqplib": "~2.4"
             },
@@ -513,7 +533,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2015-05-11 14:51:05"
+            "time": "2015-06-05 11:23:05"
         },
         {
             "name": "pixeloution/true-random",
@@ -548,18 +568,70 @@
             "time": "2013-07-21 03:53:18"
         },
         {
+            "name": "psr/http-message",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-message.git",
+                "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
+                "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP messages",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "time": "2015-05-04 20:22:00"
+        },
+        {
             "name": "psr/log",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "bf2c13de4300e227d7b2fd08027673a79c519987"
+                "reference": "9e45edca52cc9c954680072c93e621f8b71fab26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/bf2c13de4300e227d7b2fd08027673a79c519987",
-                "reference": "bf2c13de4300e227d7b2fd08027673a79c519987",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/9e45edca52cc9c954680072c93e621f8b71fab26",
+                "reference": "9e45edca52cc9c954680072c93e621f8b71fab26",
                 "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
             },
             "type": "library",
             "extra": {
@@ -588,7 +660,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2015-03-26 14:39:45"
+            "time": "2015-06-02 13:48:41"
         },
         {
             "name": "react/cache",
@@ -635,12 +707,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/dns.git",
-                "reference": "555bb6db5759ef33b20ad33909f82f4bdf989599"
+                "reference": "e61f53c03be1ee277d4dd9650412285a64a0a4d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/dns/zipball/555bb6db5759ef33b20ad33909f82f4bdf989599",
-                "reference": "555bb6db5759ef33b20ad33909f82f4bdf989599",
+                "url": "https://api.github.com/repos/reactphp/dns/zipball/e61f53c03be1ee277d4dd9650412285a64a0a4d2",
+                "reference": "e61f53c03be1ee277d4dd9650412285a64a0a4d2",
                 "shasum": ""
             },
             "require": {
@@ -669,7 +741,7 @@
                 "dns",
                 "dns-resolver"
             ],
-            "time": "2015-05-15 03:40:40"
+            "time": "2015-06-02 14:02:29"
         },
         {
             "name": "react/event-loop",
@@ -805,12 +877,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/socket-client.git",
-                "reference": "98b609589281b2cc717c04e87b1efd9a626001b5"
+                "reference": "3cc3f860a6942ea5c0e0384c9b4ee27149753eff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/socket-client/zipball/98b609589281b2cc717c04e87b1efd9a626001b5",
-                "reference": "98b609589281b2cc717c04e87b1efd9a626001b5",
+                "url": "https://api.github.com/repos/reactphp/socket-client/zipball/3cc3f860a6942ea5c0e0384c9b4ee27149753eff",
+                "reference": "3cc3f860a6942ea5c0e0384c9b4ee27149753eff",
                 "shasum": ""
             },
             "require": {
@@ -839,7 +911,7 @@
             "keywords": [
                 "Socket"
             ],
-            "time": "2015-05-13 14:09:13"
+            "time": "2015-06-02 14:03:01"
         },
         {
             "name": "react/stream",
@@ -949,75 +1021,84 @@
         },
         {
             "name": "zendframework/zend-escaper",
-            "version": "2.4.0",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
-                "url": "https://github.com/zendframework/Component_ZendEscaper.git",
-                "reference": "65b3328627362b0be1d5e9067bc846511d1fbc96"
+                "url": "https://github.com/zendframework/zend-escaper.git",
+                "reference": "4931575996994f7e1a6e7f59445dc9334400048d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/Component_ZendEscaper/zipball/65b3328627362b0be1d5e9067bc846511d1fbc96",
-                "reference": "65b3328627362b0be1d5e9067bc846511d1fbc96",
+                "url": "https://api.github.com/repos/zendframework/zend-escaper/zipball/4931575996994f7e1a6e7f59445dc9334400048d",
+                "reference": "4931575996994f7e1a6e7f59445dc9334400048d",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.23"
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "fabpot/php-cs-fixer": "1.7.*",
+                "phpunit/phpunit": "~4.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.3-dev",
-                    "dev-develop": "2.4-dev"
+                    "dev-master": "2.5-dev",
+                    "dev-develop": "2.6-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Zend\\Escaper\\": ""
+                    "Zend\\Escaper\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
-            "homepage": "https://github.com/zendframework/zf2",
+            "homepage": "https://github.com/zendframework/zend-escaper",
             "keywords": [
                 "escaper",
                 "zf2"
             ],
-            "time": "2015-04-01 18:02:07"
+            "time": "2015-06-05 09:18:01"
         },
         {
             "name": "zendframework/zend-http",
-            "version": "2.4.0",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
-                "url": "https://github.com/zendframework/Component_ZendHttp.git",
-                "reference": "ee6220609845b32d1b2873c9ac694aef56d508f5"
+                "url": "https://github.com/zendframework/zend-http.git",
+                "reference": "6cba6905dcc6c3dafa2b54e788857be8d20a17c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/Component_ZendHttp/zipball/ee6220609845b32d1b2873c9ac694aef56d508f5",
-                "reference": "ee6220609845b32d1b2873c9ac694aef56d508f5",
+                "url": "https://api.github.com/repos/zendframework/zend-http/zipball/6cba6905dcc6c3dafa2b54e788857be8d20a17c6",
+                "reference": "6cba6905dcc6c3dafa2b54e788857be8d20a17c6",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.23",
-                "zendframework/zend-loader": "self.version",
-                "zendframework/zend-stdlib": "self.version",
-                "zendframework/zend-uri": "self.version",
-                "zendframework/zend-validator": "self.version"
+                "php": ">=5.5",
+                "zendframework/zend-loader": "~2.5",
+                "zendframework/zend-stdlib": "~2.5",
+                "zendframework/zend-uri": "~2.5",
+                "zendframework/zend-validator": "~2.5"
+            },
+            "require-dev": {
+                "fabpot/php-cs-fixer": "1.7.*",
+                "phpunit/phpunit": "~4.0",
+                "zendframework/zend-config": "~2.5"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.3-dev",
-                    "dev-develop": "2.4-dev"
+                    "dev-master": "2.5-dev",
+                    "dev-develop": "2.6-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Zend\\Http\\": ""
+                    "Zend\\Http\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1025,78 +1106,86 @@
                 "BSD-3-Clause"
             ],
             "description": "provides an easy interface for performing Hyper-Text Transfer Protocol (HTTP) requests",
-            "homepage": "https://github.com/zendframework/zf2",
+            "homepage": "https://github.com/zendframework/zend-http",
             "keywords": [
                 "http",
                 "zf2"
             ],
-            "time": "2015-04-01 18:09:25"
+            "time": "2015-06-05 09:18:04"
         },
         {
             "name": "zendframework/zend-loader",
-            "version": "2.4.0",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
-                "url": "https://github.com/zendframework/Component_ZendLoader.git",
-                "reference": "6868b8a0c346f17fb97724c3a63aa2cbf6b94865"
+                "url": "https://github.com/zendframework/zend-loader.git",
+                "reference": "b247db701f618b981a531477a2efe2532949e652"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/Component_ZendLoader/zipball/6868b8a0c346f17fb97724c3a63aa2cbf6b94865",
-                "reference": "6868b8a0c346f17fb97724c3a63aa2cbf6b94865",
+                "url": "https://api.github.com/repos/zendframework/zend-loader/zipball/b247db701f618b981a531477a2efe2532949e652",
+                "reference": "b247db701f618b981a531477a2efe2532949e652",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.23"
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "fabpot/php-cs-fixer": "1.7.*",
+                "phpunit/phpunit": "~4.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.3-dev",
-                    "dev-develop": "2.4-dev"
+                    "dev-master": "2.5-dev",
+                    "dev-develop": "2.6-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Zend\\Loader\\": ""
+                    "Zend\\Loader\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
-            "homepage": "https://github.com/zendframework/zf2",
+            "homepage": "https://github.com/zendframework/zend-loader",
             "keywords": [
                 "loader",
                 "zf2"
             ],
-            "time": "2015-04-01 18:09:26"
+            "time": "2015-06-05 09:18:08"
         },
         {
             "name": "zendframework/zend-log",
-            "version": "2.4.0",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
-                "url": "https://github.com/zendframework/Component_ZendLog.git",
-                "reference": "2d5d20fd45470506bdaff727c46dc25fe953146e"
+                "url": "https://github.com/zendframework/zend-log.git",
+                "reference": "ac720fd0bf614555f0cc11c8c2f07b2489dfef4c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/Component_ZendLog/zipball/2d5d20fd45470506bdaff727c46dc25fe953146e",
-                "reference": "2d5d20fd45470506bdaff727c46dc25fe953146e",
+                "url": "https://api.github.com/repos/zendframework/zend-log/zipball/ac720fd0bf614555f0cc11c8c2f07b2489dfef4c",
+                "reference": "ac720fd0bf614555f0cc11c8c2f07b2489dfef4c",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.23",
-                "zendframework/zend-servicemanager": "self.version",
-                "zendframework/zend-stdlib": "self.version"
+                "php": ">=5.5",
+                "zendframework/zend-servicemanager": "~2.5",
+                "zendframework/zend-stdlib": "~2.5"
             },
             "require-dev": {
-                "zendframework/zend-console": "self.version",
-                "zendframework/zend-db": "self.version",
-                "zendframework/zend-escaper": "self.version",
-                "zendframework/zend-mail": "self.version",
-                "zendframework/zend-validator": "self.version"
+                "fabpot/php-cs-fixer": "1.7.*",
+                "phpunit/phpunit": "~4.0",
+                "zendframework/zend-console": "~2.5",
+                "zendframework/zend-db": "~2.5",
+                "zendframework/zend-escaper": "~2.5",
+                "zendframework/zend-filter": "~2.5",
+                "zendframework/zend-mail": "~2.5",
+                "zendframework/zend-mvc": "~2.5",
+                "zendframework/zend-validator": "~2.5"
             },
             "suggest": {
                 "ext-mongo": "*",
@@ -1109,13 +1198,13 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.3-dev",
-                    "dev-develop": "2.4-dev"
+                    "dev-master": "2.5-dev",
+                    "dev-develop": "2.6-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Zend\\Log\\": ""
+                    "Zend\\Log\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1123,33 +1212,36 @@
                 "BSD-3-Clause"
             ],
             "description": "component for general purpose logging",
-            "homepage": "https://github.com/zendframework/zf2",
+            "homepage": "https://github.com/zendframework/zend-log",
             "keywords": [
                 "log",
                 "logging",
                 "zf2"
             ],
-            "time": "2015-04-01 18:09:26"
+            "time": "2015-06-05 09:18:08"
         },
         {
             "name": "zendframework/zend-servicemanager",
-            "version": "2.4.0",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
-                "url": "https://github.com/zendframework/Component_ZendServiceManager.git",
-                "reference": "d3c27c708a148a30608f313a5b7a61a531bd9cb9"
+                "url": "https://github.com/zendframework/zend-servicemanager.git",
+                "reference": "7b7f35184787ac7603c7d0668ffdf0581c5c2702"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/Component_ZendServiceManager/zipball/d3c27c708a148a30608f313a5b7a61a531bd9cb9",
-                "reference": "d3c27c708a148a30608f313a5b7a61a531bd9cb9",
+                "url": "https://api.github.com/repos/zendframework/zend-servicemanager/zipball/7b7f35184787ac7603c7d0668ffdf0581c5c2702",
+                "reference": "7b7f35184787ac7603c7d0668ffdf0581c5c2702",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.23"
+                "php": ">=5.5"
             },
             "require-dev": {
-                "zendframework/zend-di": "self.version"
+                "fabpot/php-cs-fixer": "1.7.*",
+                "phpunit/phpunit": "~4.0",
+                "zendframework/zend-di": "~2.5",
+                "zendframework/zend-mvc": "~2.5"
             },
             "suggest": {
                 "ocramius/proxy-manager": "ProxyManager 0.5.* to handle lazy initialization of services",
@@ -1158,48 +1250,52 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.3-dev",
-                    "dev-develop": "2.4-dev"
+                    "dev-master": "2.5-dev",
+                    "dev-develop": "2.6-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Zend\\ServiceManager\\": ""
+                    "Zend\\ServiceManager\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
-            "homepage": "https://github.com/zendframework/zf2",
+            "homepage": "https://github.com/zendframework/zend-servicemanager",
             "keywords": [
                 "servicemanager",
                 "zf2"
             ],
-            "time": "2015-04-01 18:09:28"
+            "time": "2015-06-05 09:18:12"
         },
         {
             "name": "zendframework/zend-stdlib",
-            "version": "2.4.0",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
-                "url": "https://github.com/zendframework/Component_ZendStdlib.git",
-                "reference": "eab586f4c18af3fa63c977611939f1f4a3cf1030"
+                "url": "https://github.com/zendframework/zend-stdlib.git",
+                "reference": "378d623b3513bdb4457c4dd0662faae63b524570"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/Component_ZendStdlib/zipball/eab586f4c18af3fa63c977611939f1f4a3cf1030",
-                "reference": "eab586f4c18af3fa63c977611939f1f4a3cf1030",
+                "url": "https://api.github.com/repos/zendframework/zend-stdlib/zipball/378d623b3513bdb4457c4dd0662faae63b524570",
+                "reference": "378d623b3513bdb4457c4dd0662faae63b524570",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.23"
+                "php": ">=5.5"
             },
             "require-dev": {
-                "zendframework/zend-eventmanager": "self.version",
-                "zendframework/zend-filter": "self.version",
-                "zendframework/zend-serializer": "self.version",
-                "zendframework/zend-servicemanager": "self.version"
+                "fabpot/php-cs-fixer": "1.7.*",
+                "phpunit/phpunit": "~4.0",
+                "zendframework/zend-config": "~2.5",
+                "zendframework/zend-eventmanager": "~2.5",
+                "zendframework/zend-filter": "~2.5",
+                "zendframework/zend-inputfilter": "~2.5",
+                "zendframework/zend-serializer": "~2.5",
+                "zendframework/zend-servicemanager": "~2.5"
             },
             "suggest": {
                 "zendframework/zend-eventmanager": "To support aggregate hydrator usage",
@@ -1210,55 +1306,59 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.3-dev",
-                    "dev-develop": "2.4-dev"
+                    "dev-master": "2.5-dev",
+                    "dev-develop": "2.6-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Zend\\Stdlib\\": ""
+                    "Zend\\Stdlib\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
-            "homepage": "https://github.com/zendframework/zf2",
+            "homepage": "https://github.com/zendframework/zend-stdlib",
             "keywords": [
                 "stdlib",
                 "zf2"
             ],
-            "time": "2015-04-01 18:09:29"
+            "time": "2015-06-05 09:18:13"
         },
         {
             "name": "zendframework/zend-uri",
-            "version": "2.4.0",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
-                "url": "https://github.com/zendframework/Component_ZendUri.git",
-                "reference": "53f5b162b293f80de8b951eece8e08be83c4fe16"
+                "url": "https://github.com/zendframework/zend-uri.git",
+                "reference": "1c36ee4b734640791fd3c08cc921ee891a7d35a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/Component_ZendUri/zipball/53f5b162b293f80de8b951eece8e08be83c4fe16",
-                "reference": "53f5b162b293f80de8b951eece8e08be83c4fe16",
+                "url": "https://api.github.com/repos/zendframework/zend-uri/zipball/1c36ee4b734640791fd3c08cc921ee891a7d35a0",
+                "reference": "1c36ee4b734640791fd3c08cc921ee891a7d35a0",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.23",
-                "zendframework/zend-escaper": "self.version",
-                "zendframework/zend-validator": "self.version"
+                "php": ">=5.5",
+                "zendframework/zend-escaper": "~2.5",
+                "zendframework/zend-validator": "~2.5"
+            },
+            "require-dev": {
+                "fabpot/php-cs-fixer": "1.7.*",
+                "phpunit/phpunit": "~4.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.3-dev",
-                    "dev-develop": "2.4-dev"
+                    "dev-master": "2.5-dev",
+                    "dev-develop": "2.6-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Zend\\Uri\\": ""
+                    "Zend\\Uri\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1266,39 +1366,44 @@
                 "BSD-3-Clause"
             ],
             "description": "a component that aids in manipulating and validating » Uniform Resource Identifiers (URIs)",
-            "homepage": "https://github.com/zendframework/zf2",
+            "homepage": "https://github.com/zendframework/zend-uri",
             "keywords": [
                 "uri",
                 "zf2"
             ],
-            "time": "2015-04-01 18:09:29"
+            "time": "2015-06-05 09:18:14"
         },
         {
             "name": "zendframework/zend-validator",
-            "version": "2.4.0",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
-                "url": "https://github.com/zendframework/Component_ZendValidator.git",
-                "reference": "eb678d20256f120a72ca27276bbb2875841701ab"
+                "url": "https://github.com/zendframework/zend-validator.git",
+                "reference": "c7a00b9bcf53c3c5a687e00f900d16b187a5761f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/Component_ZendValidator/zipball/eb678d20256f120a72ca27276bbb2875841701ab",
-                "reference": "eb678d20256f120a72ca27276bbb2875841701ab",
+                "url": "https://api.github.com/repos/zendframework/zend-validator/zipball/c7a00b9bcf53c3c5a687e00f900d16b187a5761f",
+                "reference": "c7a00b9bcf53c3c5a687e00f900d16b187a5761f",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.23",
-                "zendframework/zend-stdlib": "self.version"
+                "php": ">=5.5",
+                "zendframework/zend-stdlib": "~2.5"
             },
             "require-dev": {
-                "zendframework/zend-db": "self.version",
-                "zendframework/zend-filter": "self.version",
-                "zendframework/zend-i18n": "self.version",
-                "zendframework/zend-math": "self.version",
-                "zendframework/zend-servicemanager": "self.version",
-                "zendframework/zend-session": "self.version",
-                "zendframework/zend-uri": "self.version"
+                "fabpot/php-cs-fixer": "1.7.*",
+                "phpunit/phpunit": "~4.0",
+                "zendframework/zend-cache": "~2.5",
+                "zendframework/zend-config": "~2.5",
+                "zendframework/zend-db": "~2.5",
+                "zendframework/zend-filter": "~2.5",
+                "zendframework/zend-http": "~2.5",
+                "zendframework/zend-i18n": "~2.5",
+                "zendframework/zend-math": "~2.5",
+                "zendframework/zend-servicemanager": "~2.5",
+                "zendframework/zend-session": "~2.5",
+                "zendframework/zend-uri": "~2.5"
             },
             "suggest": {
                 "zendframework/zend-db": "Zend\\Db component",
@@ -1313,13 +1418,13 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.3-dev",
-                    "dev-develop": "2.4-dev"
+                    "dev-master": "2.5-dev",
+                    "dev-develop": "2.6-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Zend\\Validator\\": ""
+                    "Zend\\Validator\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1327,20 +1432,18 @@
                 "BSD-3-Clause"
             ],
             "description": "provides a set of commonly needed validators",
-            "homepage": "https://github.com/zendframework/zf2",
+            "homepage": "https://github.com/zendframework/zend-validator",
             "keywords": [
                 "validator",
                 "zf2"
             ],
-            "time": "2015-04-01 18:09:30"
+            "time": "2015-06-05 09:18:15"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "coderstephen/slack-client": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

@@ -10,7 +10,7 @@
     }],
     "minimum-stability": "dev",
     "require": {
-        "coderstephen/slack-client": "dev-master",
+        "coderstephen/slack-client": "0.1.*",
         "evenement/evenement": "2.0.*",
         "hassankhan/config": "0.8.*",
         "pixeloution/true-random": "~1.0",
