@@ -13,25 +13,30 @@ class Plugin extends AbstractPlugin
         // attach event handlers
         $this->bot->on('mention', function (Message $message) {
             if ($message->matchesAll('/quit/')) {
-                $this->bot->say('Goodbye.', $message->getChannel());
-
-                $this->bot->quit();
+                $message->getChannel()->then(function (Channel $channel) {
+                    $this->bot->say('Goodbye.', $channel);
+                    $this->bot->quit();
+                });
             }
 
             if ($message->matchesAll('/restart|reboot/i')) {
-                $this->bot->say('I am rebooting my systems. I\'ll be back momentarily.', $message->getChannel());
-
-                $this->bot->restart();
+                $message->getChannel()->then(function (Channel $channel) {
+                    $this->bot->say('I am rebooting my systems. I\'ll be back momentarily.', $channel);
+                    $this->bot->restart();
+                });
             }
 
             if ($message->matchesAll('/users/i')) {
-                $users = $this->bot->getSlackClient()->getUsers();
+                $this->bot->getSlackClient()->getUsers()->then(function ($users) {
+                    $text = '';
+                    foreach ($users as $user) {
+                        $text .= '@'.$user->getUsername()."\n";
+                    }
 
-                $text = '';
-                foreach ($users as $user) {
-                    $text .= '@'.$user->getUsername()."\n";
-                }
-                $this->bot->say($text, $message->getChannel());
+                    $message->getChannel()->then(function (Channel $channel) {
+                        $this->bot->say($text, $channel);
+                    });
+                });
             }
 
             if ($message->matchesAll('/plugins/i', '/(running|loaded|enabled)/i')) {
@@ -41,11 +46,15 @@ class Plugin extends AbstractPlugin
                     $responseText .= "\n`".$name.'`';
                 }
 
-                $this->bot->say($responseText, $message->getChannel());
+                $message->getChannel()->then(function (Channel $channel) {
+                    $this->bot->say($responseText, $channel);
+                });
             }
 
             if ($message->matchesAll('/stats|statistics/i')) {
-                $this->showStats($message->getChannel());
+                $message->getChannel()->then(function (Channel $channel) {
+                    $this->showStats($channel);
+                });
             }
         });
     }

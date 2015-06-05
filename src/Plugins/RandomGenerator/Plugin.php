@@ -1,6 +1,7 @@
 <?php
 namespace Slackyboy\Plugins\RandomGenerator;
 
+use Slack\Channel;
 use Slackyboy\Message;
 use Slackyboy\Plugins\AbstractPlugin;
 use Pixeloution\Random\Randomizer;
@@ -18,8 +19,9 @@ class Plugin extends AbstractPlugin
             if ($message->matchesAll('/random/')) {
                 $random = $this->generator->integers(0, 100000, 1);
 
-                $this->bot->say('Here\'s a random number: '.$random[0], $message->getChannel());
-                $this->bot->say('(Courtesy of random.org)', $message->getChannel());
+                $message->getChannel()->then(function (Channel $channel) {
+                    $this->bot->say('Here\'s a random number: '.$random[0]."\n(Courtesy of random.org)", $channel);
+                });
             }
         });
     }

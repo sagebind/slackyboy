@@ -8,6 +8,7 @@ use Noodlehaus\Config;
 use React\EventLoop;
 use Slack\Channel;
 use Slack\RealTimeClient;
+use Slack\User;
 
 /**
  * Main bot object that connects to Slack and emits useful bot-wide events.
@@ -148,11 +149,12 @@ class Bot
             }
         });
 
-        $this->client->connect();
-
-        // get the Slack bot user info
-        $this->botUser = $this->client->getAuthedUser();
-        $this->log->info('Bot user name is configured as '.$this->botUser->getUsername());
+        $this->client->connect()->then(function () {
+            return $this->client->getAuthedUser();
+        })->then(function (User $user) {
+            $this->botUser = $user;
+            $this->log->info('Bot user name is configured as '.$user->getUsername());
+        });
 
         $this->loop->run();
     }

@@ -1,6 +1,7 @@
 <?php
 namespace Slackyboy\Plugins\Human;
 
+use Slack\Channel;
 use Slackyboy\Message;
 use Slackyboy\Plugins\AbstractPlugin;
 
@@ -10,7 +11,9 @@ class Plugin extends AbstractPlugin
     {
         $this->bot->on('mention', function (Message $message) {
             if ($message->matchesAny('/thanks/i', '/thank you/i')) {
-                $this->bot->say('You\'re welcome.', $message->getChannel());
+                $message->getChannel()->then(function (Channel $channel) {
+                    $this->bot->say('You\'re welcome.', $channel);
+                });
             }
 
             // asked to greet someone
@@ -20,9 +23,13 @@ class Plugin extends AbstractPlugin
                     preg_match('/to\s+(the\s+)?(\w+)/i', $message->getText(), $matches);
 
                     $name = count($matches) > 2 ? $matches[2] : $matches[1];
-                    $this->bot->say('Hello, '.$name.'.', $message->getChannel());
+                    $message->getChannel()->then(function (Channel $channel) {
+                        $this->bot->say('Hello, '.$name.'.', $channel);
+                    });
                 } else {
-                    $this->bot->say('Hello.', $message->getChannel());
+                    $message->getChannel()->then(function (Channel $channel) {
+                        $this->bot->say('Hello.', $channel);
+                    });
                 }
             }
         });
