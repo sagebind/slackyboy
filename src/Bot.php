@@ -6,7 +6,7 @@ use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Noodlehaus\Config;
 use React\EventLoop;
-use Slack\Channel;
+use Slack\PostableInterface;
 use Slack\RealTimeClient;
 use Slack\User;
 
@@ -135,7 +135,7 @@ class Bot
     public function run()
     {
         $this->client->on('message', function ($data) {
-            $message = new Message($this->client, $data);
+            $message = new Message($this->client, $data->getData());
 
             $this->log->info('Noticed message', [
                 'text' => $message->getText(),
@@ -162,10 +162,10 @@ class Bot
     /**
      * Sends a message to a channel.
      *
-     * @param string  $text    The message text to send.
-     * @param Channel $channel The channel to send the message to.
+     * @param string            $text    The message text to send.
+     * @param PostableInterface $channel The channel to send the message to.
      */
-    public function say($text, Channel $channel)
+    public function say($text, PostableInterface $channel)
     {
         $this->log->info('Sending new message');
         $this->client->send($text, $channel);
