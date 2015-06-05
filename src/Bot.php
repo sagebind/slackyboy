@@ -54,7 +54,6 @@ class Bot
     {
         // create a bot-wide log
         $this->log = new Logger('bot');
-        $this->log->pushHandler(new StreamHandler('php://stdout', Logger::DEBUG));
 
         // load configuration
         $this->loadConfig();
