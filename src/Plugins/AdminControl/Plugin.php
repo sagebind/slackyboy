@@ -6,6 +6,9 @@ use Slackyboy\Plugins\AbstractPlugin;
 use Slack\PostableInterface;
 use Slack\User;
 
+/**
+ * Class Plugin
+ */
 class Plugin extends AbstractPlugin
 {
     public function enable()
@@ -59,11 +62,18 @@ class Plugin extends AbstractPlugin
         });
     }
 
+    /**
+     * @param User $user
+     * @return bool
+     */
     public function userIsAdmin(User $user)
     {
         return false;
     }
 
+    /**
+     * @param PostableInterface $channel
+     */
     public function showStats(PostableInterface $channel)
     {
         $startTime = new \DateTime();
@@ -94,6 +104,6 @@ class Plugin extends AbstractPlugin
         $base = log($size, 1024);
         $suffixes = array('', 'k', 'M', 'G', 'T');
 
-        return round(pow(1024, $base - floor($base)), $precision).' '.$suffixes[floor($base)].'B';
+        return round(pow(1024, $base - floor($base)), $precision).' '.$suffixes[(int) $base].'B';
     }
 }

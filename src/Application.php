@@ -1,6 +1,9 @@
 <?php
 namespace Slackyboy;
 
+/**
+ * Class Application
+ */
 class Application
 {
     const VERSION = '@VERSION';

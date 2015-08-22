@@ -6,12 +6,15 @@ use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Noodlehaus\Config;
 use React\EventLoop;
+use React\EventLoop\LoopInterface;
 use Slack\PostableInterface;
 use Slack\RealTimeClient;
 use Slack\User;
 
 /**
  * Main bot object that connects to Slack and emits useful bot-wide events.
+ *
+ * Class Bot
  */
 class Bot
 {
@@ -84,7 +87,7 @@ class Bot
     /**
      * Gets the bot configuration.
      *
-     * @return Ccnfig The bot configuration.
+     * @return Config The bot configuration.
      */
     public function getConfig()
     {
