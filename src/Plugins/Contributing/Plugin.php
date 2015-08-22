@@ -4,6 +4,9 @@ namespace Slackyboy\Plugins\Contributing;
 use Slackyboy\Message;
 use Slackyboy\Plugins\AbstractPlugin;
 
+/**
+ * Class Plugin
+ */
 class Plugin extends AbstractPlugin
 {
     public function enable()

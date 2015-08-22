@@ -13,6 +13,10 @@ class PluginManager
      * @var array A map of plugin names to instances.
      */
     protected $plugins;
+
+    /**
+     * @var Bot
+     */
     protected $bot;
 
     /**
@@ -37,9 +41,8 @@ class PluginManager
     /**
      * Dynamically loads a plugin by name.
      *
-     * @param [type] $className [description]
-     *
-     * @return [type] [description]
+     * @param string $className
+     * @throws \Exception
      */
     public function load($className)
     {

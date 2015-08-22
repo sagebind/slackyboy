@@ -4,3 +4,7 @@
 # ide files
 *.sublime-project
 *.sublime-workspace
+.idea
+
+# config
+slackyboy.json

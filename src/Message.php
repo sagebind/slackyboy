@@ -1,6 +1,9 @@
 <?php
 namespace Slackyboy;
 
+/**
+ * Class Message
+ */
 class Message extends \Slack\Message
 {
     public function isDirect()
@@ -12,8 +15,8 @@ class Message extends \Slack\Message
      *
      * Accepts 1 or more arguments.
      *
-     * @param   $pattern1 A regular expression to match against.
-     * @param   $pattern2 Another regular expression to match against.
+     * @param string $pattern1 A regular expression to match against.
+     * @param string $pattern2 Another regular expression to match against.
      *
      * @return bool True if the message text matches all of the given regular expressions.
      */
@@ -33,8 +36,8 @@ class Message extends \Slack\Message
      *
      * Accepts 1 or more arguments.
      *
-     * @param   $pattern1 A regular expression to match against.
-     * @param   $pattern2 Another regular expression to match against.
+     * @param string $pattern1 A regular expression to match against.
+     * @param string $pattern2 Another regular expression to match against.
      *
      * @return bool True if the message text matches any of the given regular expressions.
      */

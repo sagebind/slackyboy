@@ -4,6 +4,9 @@ namespace Slackyboy\Plugins\Human;
 use Slackyboy\Message;
 use Slackyboy\Plugins\AbstractPlugin;
 
+/**
+ * Class Plugin
+ */
 class Plugin extends AbstractPlugin
 {
     public function enable()
@@ -22,7 +25,7 @@ class Plugin extends AbstractPlugin
                     preg_match('/to\s+(the\s+)?(\w+)/i', $message->getText(), $matches);
 
                     $name = count($matches) > 2 ? $matches[2] : $matches[1];
-                    $message->getChannel()->then(function ($channel) {
+                    $message->getChannel()->then(function ($channel) use ($name) {
                         $this->bot->say('Hello, '.$name.'.', $channel);
                     });
                 } else {
