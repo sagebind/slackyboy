@@ -1,5 +1,4 @@
-<?php
-namespace Slackyboy;
+<?php namespace Slackyboy;
 
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
@@ -64,8 +63,9 @@ class Application
     protected function error($code, $message)
     {
         // make sure message have trailing \n
-        if(mb_substr($message, -1) !== PHP_EOL)
+        if (mb_substr($message, -1) !== PHP_EOL) {
             $message .= PHP_EOL;
+        }
 
         $stream = fopen('php://stderr', 'a');
         fwrite($stream, $message);
@@ -112,4 +112,3 @@ EOD;
         }
     }
 }
-

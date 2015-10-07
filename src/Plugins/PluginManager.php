@@ -1,5 +1,4 @@
-<?php
-namespace Slackyboy\Plugins;
+<?php namespace Slackyboy\Plugins;
 
 use Slackyboy\Bot;
 

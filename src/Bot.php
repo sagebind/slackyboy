@@ -12,7 +12,6 @@ use Slackyboy\Plugins\PluginManager;
 
 /**
  * Main bot object that connects to Slack and emits useful bot-wide events.
- *
  * Class Bot
  */
 class Bot
@@ -82,7 +81,7 @@ class Bot
 
             $this->emit('message', [$message]);
 
-            if ($message->matchesAny('/'.$this->botUser->getUsername().'/i')) {
+            if ($message->matchesAny('/' . $this->botUser->getUsername() . '/i')) {
                 $this->app->getLogger()->debug('Mentioned in message', [$message]);
                 $this->emit('mention', [$message]);
             }
@@ -92,7 +91,7 @@ class Bot
             return $this->client->getAuthedUser();
         })->then(function (User $user) {
             $this->botUser = $user;
-            $this->app->getLogger()->info('Bot user name is configured as '.$user->getUsername());
+            $this->app->getLogger()->info('Bot user name is configured as ' . $user->getUsername());
         });
 
         $this->loop->run();
@@ -164,7 +163,7 @@ class Bot
     {
         $this->client = new RealTimeClient($this->loop);
 
-        if($token = $this->app->getConfig()->get('slack.token')) {
+        if ($token = $this->app->getConfig()->get('slack.token')) {
             $this->client->setToken($token);
         } else {
             throw new \Exception('Specify slack token in configuration file');

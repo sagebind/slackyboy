@@ -1,5 +1,4 @@
-<?php
-namespace Slackyboy\Plugins;
+<?php namespace Slackyboy\Plugins;
 
 use Slackyboy\Bot;
 
@@ -8,7 +7,14 @@ use Slackyboy\Bot;
  */
 abstract class AbstractPlugin implements PluginInterface
 {
+    /**
+     * @var Bot
+     */
     protected $bot;
+
+    /**
+     * @var PluginManager
+     */
     protected $pluginManager;
 
     /**

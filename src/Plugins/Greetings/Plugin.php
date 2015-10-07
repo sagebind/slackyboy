@@ -1,5 +1,4 @@
-<?php
-namespace Slackyboy\Plugins\Greetings;
+<?php namespace Slackyboy\Plugins\Greetings;
 
 use Slack\User;
 use Slackyboy\Message;
@@ -10,6 +9,9 @@ use Slackyboy\Plugins\AbstractPlugin;
  */
 class Plugin extends AbstractPlugin
 {
+    /**
+     * @var string
+     */
     public $greeting = 'Greetings';
 
     public function enable()

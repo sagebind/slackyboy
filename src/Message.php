@@ -1,5 +1,4 @@
-<?php
-namespace Slackyboy;
+<?php namespace Slackyboy;
 
 /**
  * Class Message
@@ -7,9 +6,7 @@ namespace Slackyboy;
 class Message extends \Slack\Message\Message
 {
     /**
-     * Checks if the message text matches all of the given regular expressions.
-     *
-     * Accepts 1 or more arguments.
+     * Checks if the message text matches all of the given regular expressions. Accepts 1 or more arguments.
      *
      * @return bool True if the message text matches all of the given regular expressions.
      */
@@ -25,9 +22,7 @@ class Message extends \Slack\Message\Message
     }
 
     /**
-     * Checks if the message text matches any of the given regular expressions.
-     *
-     * Accepts 1 or more arguments.
+     * Checks if the message text matches any of the given regular expressions. Accepts 1 or more arguments.
      *
      * @return bool True if the message text matches any of the given regular expressions.
      */
