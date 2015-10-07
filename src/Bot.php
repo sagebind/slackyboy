@@ -110,12 +110,6 @@ class Bot
      */
     public function loadConfig()
     {
-        // if no config file exists, create the default
-        if (!is_file($this->getConfigPath())) {
-            //$this->createDefaultConfig();
-        }
-
-        // load config
         $this->config = new Config(dirname(__DIR__).'/slackyboy.json');
     }
 
@@ -196,29 +190,5 @@ class Bot
             // We only care about the child fork
             pcntl_exec($argv[0], array_slice($argv, 1));
         }
-    }
-
-    /**
-     * Gets the path to the config file.
-     *
-     * @return string The config file path.
-     */
-    protected function getConfigPath()
-    {
-        return getenv('HOME').'/.slackyboy.json';
-    }
-
-    /**
-     * Creates the default config file if it does not exist.
-     */
-    protected function createDefaultConfig()
-    {
-        // delete existing config
-        if (!is_file($this->getConfigPath())) {
-            unlink($this->getConfigPath());
-        }
-
-        // copy packaged default into config location
-        copy(dirname(__DIR__).'/slackyboy.json', $this->getConfigPath());
     }
 }
