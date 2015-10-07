@@ -6,8 +6,5 @@
 *.sublime-workspace
 .idea
 
-#logs
-logs/
-
 # config
 slackyboy.json

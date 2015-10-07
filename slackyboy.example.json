@@ -1,5 +1,4 @@
 {
-  "log": "logs/bot.log",
   "plugins": {
     "Slackyboy\\Plugins\\Greetings\\Plugin": {
       "greeting": "Howdy"

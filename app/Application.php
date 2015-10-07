@@ -40,8 +40,8 @@ class Application
         }
 
         try {
-            $this->initConfig($options);
             $this->initLogger();
+            $this->initConfig($options);
 
             $bot = new Bot($this);
             $bot->run();
@@ -99,15 +99,15 @@ EOD;
         }
 
         $this->config = new Config($file);
+
+        $this->logger->info('Config component initialized (from ' . $file . ')');
     }
 
     protected function initLogger()
     {
         $this->logger = new Logger('slackyboy');
 
-        if ($file = $this->config->get('log')) {
-            $this->logger->pushHandler(new StreamHandler($file, Logger::DEBUG));
-        }
+        $this->logger->pushHandler(new StreamHandler('php://stdout'));
 
         $this->logger->info('Logger component initialized');
     }
