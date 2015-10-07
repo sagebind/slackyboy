@@ -57,7 +57,7 @@ class Application
         }
     }
 
-    public function showHelp()
+    protected function showHelp()
     {
         echo <<< EOD
 Slackyboy - Slack chat bot
