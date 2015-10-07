@@ -41,4 +41,14 @@ class Message extends \Slack\Message\Message
 
         return false;
     }
+
+    /**
+     * Gets the channel, group, or DM channel the message is in.
+     *
+     * @return \React\Promise\PromiseInterface
+     */
+    public function getChannel()
+    {
+        return $this->client->getChannelGroupOrDMByID($this->data['channel']);
+    }
 }
