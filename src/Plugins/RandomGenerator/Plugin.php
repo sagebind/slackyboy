@@ -10,6 +10,9 @@ use Pixeloution\Random\Randomizer;
  */
 class Plugin extends AbstractPlugin
 {
+    /**
+     * @var Randomizer
+     */
     protected $generator;
 
     public function enable()
