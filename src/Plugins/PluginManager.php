@@ -56,6 +56,7 @@ class PluginManager
         }
 
         try {
+            /** @var PluginInterface $instance */
             $instance = new $className($this->bot, $this);
             $instance->enable();
             $this->plugins[$className] = $instance;
