@@ -108,5 +108,7 @@ EOD;
         if ($file = $this->config->get('log')) {
             $this->logger->pushHandler(new StreamHandler($file, Logger::DEBUG));
         }
+
+        $this->logger->info('Logger component initialized');
     }
 }

@@ -68,6 +68,14 @@ class Bot
     }
 
     /**
+     * @return Application
+     */
+    public function getApplication()
+    {
+        return $this->app;
+    }
+
+    /**
      * Runs the bot.
      */
     public function run()
@@ -154,6 +162,8 @@ class Bot
     protected function initLoop()
     {
         $this->loop = EventLoop\Factory::create();
+
+        $this->getApplication()->getLogger()->info('EventLoop initialized');
     }
 
     /**
@@ -168,5 +178,7 @@ class Bot
         } else {
             throw new \Exception('Specify slack token in configuration file');
         }
+
+        $this->getApplication()->getLogger()->info('RealTimeClient initialized');
     }
 }

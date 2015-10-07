@@ -69,6 +69,8 @@ class PluginManager
 
             $instance->enable();
             $this->plugins[$className] = $instance;
+
+            $this->bot->getApplication()->getLogger()->info('Plugin initialized: ' . $className);
         } catch (\Exception $exception) {
             throw new \Exception('Error in loading plugin "' . $className . '": ' . $exception->getMessage());
         }
