@@ -55,17 +55,15 @@ class Bot
      * Creates a new bot instance.
      *
      * @param Config $config
+     * @param Logger $logger
      */
-    public function __construct(Config $config)
+    public function __construct(Config $config, Logger $logger)
     {
         // store config
         $this->config = $config;
 
-        // create a bot-wide log
-        $this->log = new Logger('bot');
-
-        // configure the log to write to the config-specified location
-        $this->log->pushHandler(new StreamHandler($this->config->get('log'), Logger::DEBUG));
+        // store logger
+        $this->log = $logger;
 
         // load plugins
         $this->loadPlugins();

@@ -1,6 +1,8 @@
 <?php
 namespace Slackyboy;
 
+use Monolog\Handler\StreamHandler;
+use Monolog\Logger;
 use Noodlehaus\Config;
 
 /**
@@ -20,8 +22,9 @@ class Application
         }
 
         $config = $this->getConfig($options);
+        $logger = $this->getLogger($config);
 
-        $bot = new Bot($config);
+        $bot = new Bot($config, $logger);
         $bot->run();
     }
 
@@ -61,5 +64,23 @@ EOD;
         }
 
         return $config;
+    }
+
+    /**
+     * @param Config $config
+     *
+     * @return Logger
+     */
+    private function getLogger(Config $config)
+    {
+        // create a bot-wide log
+        $log = new Logger('bot');
+
+        if ($config->get('log')) {
+            // configure the log to write to the config-specified location
+            $log->pushHandler(new StreamHandler($config->get('log'), Logger::DEBUG));
+        }
+
+        return $log;
     }
 }
