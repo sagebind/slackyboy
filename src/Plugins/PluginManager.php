@@ -10,7 +10,7 @@ use Slackyboy\Bot;
 class PluginManager
 {
     /**
-     * @var array A map of plugin names to instances.
+     * @var PluginInterface[] A map of plugin names to instances.
      */
     protected $plugins;
 
