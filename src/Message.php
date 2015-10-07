@@ -15,12 +15,9 @@ class Message extends \Slack\Message\Message
      *
      * Accepts 1 or more arguments.
      *
-     * @param string $pattern1 A regular expression to match against.
-     * @param string $pattern2 Another regular expression to match against.
-     *
      * @return bool True if the message text matches all of the given regular expressions.
      */
-    public function matchesAll($pattern1, $pattern2 = null)
+    public function matchesAll()
     {
         for ($i = 0; $i < func_num_args(); $i++) {
             if (preg_match(func_get_arg($i), $this->getText()) !== 1) {
@@ -36,12 +33,9 @@ class Message extends \Slack\Message\Message
      *
      * Accepts 1 or more arguments.
      *
-     * @param string $pattern1 A regular expression to match against.
-     * @param string $pattern2 Another regular expression to match against.
-     *
      * @return bool True if the message text matches any of the given regular expressions.
      */
-    public function matchesAny($pattern1, $pattern2 = null)
+    public function matchesAny()
     {
         for ($i = 0; $i < func_num_args(); $i++) {
             if (preg_match(func_get_arg($i), $this->getText()) === 1) {
