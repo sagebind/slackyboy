@@ -1,4 +1,6 @@
 # Slackyboy
+
+[![Join the chat at https://gitter.im/pavel-voronin/slackyboy](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/pavel-voronin/slackyboy?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Slackyboy is a helpful, programmable chat bot for [Slack](http://slack.com) written in PHP.
 
 Slackyboy is currently under early development. If you're interested in using Slackyboy, please come back soon when Slackyboy is more stable.
