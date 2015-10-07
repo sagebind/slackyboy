@@ -1,13 +1,13 @@
-<?php namespace Slackyboy\Plugins\Greetings;
+<?php
 
 use Slack\User;
 use Slackyboy\Message;
 use Slackyboy\Plugins\AbstractPlugin;
 
 /**
- * Class Plugin
+ * Class Greetings
  */
-class Plugin extends AbstractPlugin
+class Greetings extends AbstractPlugin
 {
     /**
      * @var string

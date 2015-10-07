@@ -28,6 +28,7 @@
     "react/event-loop": "0.4.*"
   },
   "autoload": {
+    "classmap": ["plugins/"],
     "psr-4": {
       "Slackyboy\\": "app"
     }
