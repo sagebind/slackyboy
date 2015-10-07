@@ -15,7 +15,4 @@ By itself, Slackyboy doesn't do much. Plugins give Slackyboy new abilities, and 
 ### Built-in plugins
 Below is a list of plugins that currently come built-in with Slackyboy:
 
-- **AdminControl**: Allows you to control Slackyboy from within Slack
-- **Config**: Allows you to change Slackyboy configuration on the fly by talking to it
-- **Human**: Enables more human-like responses to questions and comments
-- **RandomGenerator**: Generates different types of random data
+- **Greetings**: An example plugin. Enables human-like greetings responses.
