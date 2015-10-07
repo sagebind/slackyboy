@@ -74,14 +74,4 @@ class PluginManager
             $plugin->enable();
         }
     }
-
-    /**
-     * Disables all loaded plugins.
-     */
-    public function disableAll()
-    {
-        foreach ($this->plugins as $plugin) {
-            $plugin->disable();
-        }
-    }
 }
