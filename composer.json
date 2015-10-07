@@ -1,6 +1,6 @@
 {
   "name": "pavel-voronin/slackyboy",
-  "type": "application",
+  "type": "project",
   "keywords": [
     "slack",
     "bot",
@@ -18,6 +18,9 @@
       "email": "pavel.a.voronin@gmail.com"
     }
   ],
+  "support": {
+    "gitter": "https://gitter.im/pavel-voronin/slackyboy"
+  },
   "minimum-stability": "dev",
   "require": {
     "php": ">=5.5.0",
@@ -28,7 +31,9 @@
     "react/event-loop": "0.4.*"
   },
   "autoload": {
-    "classmap": ["plugins/"],
+    "classmap": [
+      "plugins/"
+    ],
     "psr-4": {
       "Slackyboy\\": "app"
     }
