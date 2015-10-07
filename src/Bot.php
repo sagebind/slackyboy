@@ -7,7 +7,7 @@ use Monolog\Logger;
 use Noodlehaus\Config;
 use React\EventLoop;
 use React\EventLoop\LoopInterface;
-use Slack\PostableInterface;
+use Slack\ChannelInterface;
 use Slack\RealTimeClient;
 use Slack\User;
 
@@ -164,10 +164,10 @@ class Bot
     /**
      * Sends a message to a channel.
      *
-     * @param string            $text    The message text to send.
-     * @param PostableInterface $channel The channel to send the message to.
+     * @param string           $text    The message text to send.
+     * @param ChannelInterface $channel The channel to send the message to.
      */
-    public function say($text, PostableInterface $channel)
+    public function say($text, ChannelInterface $channel)
     {
         $this->log->info('Sending new message');
         $this->client->send($text, $channel);

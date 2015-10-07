@@ -4,7 +4,7 @@ namespace Slackyboy;
 /**
  * Class Message
  */
-class Message extends \Slack\Message
+class Message extends \Slack\Message\Message
 {
     public function isDirect()
     {
