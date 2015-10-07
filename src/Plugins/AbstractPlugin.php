@@ -9,15 +9,16 @@ use Slackyboy\Bot;
 abstract class AbstractPlugin implements PluginInterface
 {
     protected $bot;
+    protected $pluginManager;
 
     /**
-     * @param Bot $bot
-     * @param PluginManager $plugins
+     * @param Bot           $bot
+     * @param PluginManager $pluginManager
      */
-    public function __construct(Bot $bot, PluginManager $plugins)
+    public function __construct(Bot $bot, PluginManager $pluginManager)
     {
-        $this->bot = $bot;
-        $this->plugins = $plugins;
+        $this->bot           = $bot;
+        $this->pluginManager = $pluginManager;
     }
 
     /**
@@ -25,6 +26,6 @@ abstract class AbstractPlugin implements PluginInterface
      */
     public function getPluginManager()
     {
-        return $this->plugins;
+        return $this->pluginManager;
     }
 }
