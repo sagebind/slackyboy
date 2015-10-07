@@ -49,12 +49,29 @@ class Application
             $bot = new Bot($this);
             $bot->run();
         } catch (FileNotFoundException $exception) {
-            echo 'Config file was not found. Use -c option to specify config path or provide slackyboy.json root file.', PHP_EOL;
-            exit(1);
+            $this->error(1, 'Config file was not found. Use -c option to specify config path or provide slackyboy.json root file.');
         } catch (\Exception $exception) {
-            echo $exception->getMessage(), PHP_EOL;
-            exit(2);
+            $this->error(2, $exception->getMessage());
         }
+    }
+
+    /**
+     * Output error and exit with code
+     *
+     * @param $code
+     * @param $message
+     */
+    protected function error($code, $message)
+    {
+        // make sure message have trailing \n
+        if(mb_substr($message, -1) !== PHP_EOL)
+            $message .= PHP_EOL;
+
+        $stream = fopen('php://stderr', 'a');
+        fwrite($stream, $message);
+        fclose($stream);
+
+        exit($code);
     }
 
     protected function showHelp()
