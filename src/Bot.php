@@ -53,14 +53,16 @@ class Bot
 
     /**
      * Creates a new bot instance.
+     *
+     * @param Config $config
      */
-    public function __construct()
+    public function __construct(Config $config)
     {
+        // store config
+        $this->config = $config;
+
         // create a bot-wide log
         $this->log = new Logger('bot');
-
-        // load configuration
-        $this->loadConfig();
 
         // configure the log to write to the config-specified location
         $this->log->pushHandler(new StreamHandler($this->config->get('log'), Logger::DEBUG));
@@ -103,14 +105,6 @@ class Bot
     public function getSlackClient()
     {
         return $this->client;
-    }
-
-    /**
-     * Loads configuration from file.
-     */
-    public function loadConfig()
-    {
-        $this->config = new Config(dirname(__DIR__).'/slackyboy.json');
     }
 
     /**
