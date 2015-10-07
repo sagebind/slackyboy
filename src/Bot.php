@@ -8,6 +8,7 @@ use Noodlehaus\Config;
 use React\EventLoop;
 use React\EventLoop\LoopInterface;
 use Slack\ChannelInterface;
+use Slack\Payload;
 use Slack\RealTimeClient;
 use Slack\User;
 
@@ -136,7 +137,7 @@ class Bot
      */
     public function run()
     {
-        $this->client->on('message', function ($data) {
+        $this->client->on('message', function (Payload $data) {
             $message = new Message($this->client, $data->getData());
 
             $this->log->info('Noticed message', [
