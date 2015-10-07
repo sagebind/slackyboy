@@ -2,7 +2,6 @@
 namespace Slackyboy;
 
 use Evenement\EventEmitterTrait;
-use Monolog\Logger;
 use React\EventLoop;
 use React\EventLoop\LoopInterface;
 use Slack\ChannelInterface;
@@ -54,24 +53,9 @@ class Bot
     {
         $this->app = $app;
 
-        // load plugins
         $this->loadPlugins();
-
-        $this->loop = EventLoop\Factory::create();
-
-        // create an api client
-        $this->client = new RealTimeClient($this->loop);
-        $this->client->setToken($this->app->getConfig()->get('slack.token'));
-    }
-
-    /**
-     * Gets the bot logger.
-     *
-     * @return Logger
-     */
-    public function getLog()
-    {
-        return $this->app->getLogger();
+        $this->initLoop();
+        $this->initClient();
     }
 
     /**
@@ -85,21 +69,6 @@ class Bot
     }
 
     /**
-     * Loads all plugins specified in configuration.
-     */
-    public function loadPlugins()
-    {
-        // create plugin manager and load plugins
-        $this->pluginManager = new PluginManager($this);
-
-        if ($plugins = $this->app->getConfig()->get('plugins')) {
-            foreach ($plugins as $name => $options) {
-                $this->pluginManager->load($name, $options);
-            }
-        }
-    }
-
-    /**
      * Runs the bot.
      */
     public function run()
@@ -107,14 +76,14 @@ class Bot
         $this->client->on('message', function (Payload $data) {
             $message = new Message($this->client, $data->getData());
 
-            $this->getLog()->info('Noticed message', [
+            $this->app->getLogger()->info('Noticed message', [
                 'text' => $message->getText(),
             ]);
 
             $this->emit('message', [$message]);
 
             if ($message->matchesAny('/'.$this->botUser->getUsername().'/i')) {
-                $this->getLog()->debug('Mentioned in message', [$message]);
+                $this->app->getLogger()->debug('Mentioned in message', [$message]);
                 $this->emit('mention', [$message]);
             }
         });
@@ -123,7 +92,7 @@ class Bot
             return $this->client->getAuthedUser();
         })->then(function (User $user) {
             $this->botUser = $user;
-            $this->getLog()->info('Bot user name is configured as '.$user->getUsername());
+            $this->app->getLogger()->info('Bot user name is configured as '.$user->getUsername());
         });
 
         $this->loop->run();
@@ -137,7 +106,7 @@ class Bot
      */
     public function say($text, ChannelInterface $channel)
     {
-        $this->getLog()->info('Sending new message');
+        $this->app->getLogger()->info('Sending new message');
         $this->client->send($text, $channel);
     }
 
@@ -146,7 +115,7 @@ class Bot
      */
     public function quit()
     {
-        $this->getLog()->info('Quitting now');
+        $this->app->getLogger()->info('Quitting now');
         $this->client->disconnect();
     }
 
@@ -156,12 +125,49 @@ class Bot
     public function restart()
     {
         $this->quit();
-        $this->getLog()->info('Restarting now');
+        $this->app->getLogger()->info('Restarting now');
 
         global $argv;
         if (!pcntl_fork()) {
             // We only care about the child fork
             pcntl_exec($argv[0], array_slice($argv, 1));
+        }
+    }
+
+    /**
+     * Loads all plugins specified in configuration.
+     */
+    protected function loadPlugins()
+    {
+        // create plugin manager and load plugins
+        $this->pluginManager = new PluginManager($this);
+
+        if ($plugins = $this->app->getConfig()->get('plugins')) {
+            foreach ($plugins as $name => $options) {
+                $this->pluginManager->load($name, $options);
+            }
+        }
+    }
+
+    /**
+     * Initialize React event loop
+     */
+    protected function initLoop()
+    {
+        $this->loop = EventLoop\Factory::create();
+    }
+
+    /**
+     * Initialize Slack API client
+     */
+    protected function initClient()
+    {
+        $this->client = new RealTimeClient($this->loop);
+
+        if($token = $this->app->getConfig()->get('slack.token')) {
+            $this->client->setToken($token);
+        } else {
+            throw new \Exception('Specify slack token in configuration file');
         }
     }
 }
