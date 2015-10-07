@@ -1,12 +1,16 @@
 {
-    "name": "coderstephen/slackyboy",
+    "name": "pavel-voronin/slackyboy",
     "type": "application",
     "keywords": ["slack", "bot", "chat"],
     "license": "MIT",
-    "description": "A helpful programming chat bot for Slack",
+    "description": "A helpful programming chat bot for Slack. Originally designed by Stephen Coakley.",
     "authors": [{
         "name": "Stephen Coakley",
         "email": "me@stephencoakley.com"
+      },
+      {
+        "name": "Pavel Voronin",
+        "email": "pavel.a.voronin@gmail.com"
     }],
     "minimum-stability": "dev",
     "require": {

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8fdfd346afa04caec8f95515a2644586",
-    "content-hash": "3741d43a671ff923b20f8e504fa6feb1",
+    "hash": "c5d53a67609602af2f284e8a38b354aa",
+    "content-hash": "ff2cd6f08903dd52c378ac9a99186c11",
     "packages": [
         {
             "name": "coderstephen/slack-client",
