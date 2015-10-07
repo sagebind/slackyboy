@@ -67,8 +67,6 @@ class PluginManager
 
     /**
      * Enables all loaded plugins.
-     *
-     * @return [type] [description]
      */
     public function enableAll()
     {
@@ -79,8 +77,6 @@ class PluginManager
 
     /**
      * Disables all loaded plugins.
-     *
-     * @return [type] [description]
      */
     public function disableAll()
     {
