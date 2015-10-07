@@ -1,0 +1,10 @@
+{
+  "plugins": {
+    "Slackyboy\\Plugins\\Greetings\\Plugin": {
+      "greeting": "Howdy"
+    }
+  },
+  "slack": {
+    "token": "SLACK-TOKEN"
+  }
+}

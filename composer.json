@@ -1,26 +1,41 @@
 {
-    "name": "coderstephen/slackyboy",
-    "type": "application",
-    "keywords": ["slack", "bot", "chat"],
-    "license": "MIT",
-    "description": "A helpful programming chat bot for Slack",
-    "authors": [{
-        "name": "Stephen Coakley",
-        "email": "me@stephencoakley.com"
-    }],
-    "minimum-stability": "dev",
-    "require": {
-        "php": ">=5.5.0",
-        "coderstephen/slack-client": "0.1.*",
-        "evenement/evenement": "2.0.*",
-        "hassankhan/config": "0.8.*",
-        "pixeloution/true-random": "~1.0",
-        "monolog/monolog": "~1.13",
-        "react/event-loop": "0.4.*"
+  "name": "pavel-voronin/slackyboy",
+  "type": "project",
+  "keywords": [
+    "slack",
+    "bot",
+    "chat"
+  ],
+  "license": "MIT",
+  "description": "A helpful programming chat bot for Slack. Originally designed by Stephen Coakley.",
+  "authors": [
+    {
+      "name": "Stephen Coakley",
+      "email": "me@stephencoakley.com"
     },
-    "autoload": {
-        "psr-4": {
-            "Slackyboy\\": "src"
-        }
+    {
+      "name": "Pavel Voronin",
+      "email": "pavel.a.voronin@gmail.com"
     }
+  ],
+  "support": {
+    "gitter": "https://gitter.im/pavel-voronin/slackyboy"
+  },
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.5.0",
+    "coderstephen/slack-client": "dev-master",
+    "evenement/evenement": "2.0.*",
+    "hassankhan/config": "0.8.*",
+    "monolog/monolog": "~1.13",
+    "react/event-loop": "0.4.*"
+  },
+  "autoload": {
+    "classmap": [
+      "plugins/"
+    ],
+    "psr-4": {
+      "Slackyboy\\": "app"
+    }
+  }
 }

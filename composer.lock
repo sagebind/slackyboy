@@ -4,20 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "39a3382829950c87f92bb615d8ef7809",
+    "hash": "020de215197b2b52b7ce5f8dfee5aeab",
+    "content-hash": "c15a1a6a25eeb0e2c4ddaaaf87babd5b",
     "packages": [
         {
             "name": "coderstephen/slack-client",
-            "version": "v0.1.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/coderstephen/slack-client.git",
-                "reference": "9590ad78276efdcb739cee156832a399034c896d"
+                "reference": "b621c6e82d32ab2ffe8d5d4bade63afb77d4b6c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/coderstephen/slack-client/zipball/9590ad78276efdcb739cee156832a399034c896d",
-                "reference": "9590ad78276efdcb739cee156832a399034c896d",
+                "url": "https://api.github.com/repos/coderstephen/slack-client/zipball/b621c6e82d32ab2ffe8d5d4bade63afb77d4b6c0",
+                "reference": "b621c6e82d32ab2ffe8d5d4bade63afb77d4b6c0",
                 "shasum": ""
             },
             "require": {
@@ -29,6 +30,7 @@
                 "react/promise": "^2.2"
             },
             "require-dev": {
+                "apigen/apigen": "^4.1",
                 "fzaninotto/faker": "~1.4",
                 "phpunit/phpunit": "~4.6"
             },
@@ -54,7 +56,7 @@
                 "realtime",
                 "slack"
             ],
-            "time": "2015-06-05 18:49:24"
+            "time": "2015-09-30 03:59:51"
         },
         {
             "name": "container-interop/container-interop",
@@ -167,109 +169,17 @@
             "time": "2014-07-09 21:08:03"
         },
         {
-            "name": "guzzle/guzzle",
-            "version": "v3.5.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "e97207d07d0385eac269a976628b7a5f9eeb4e07"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/e97207d07d0385eac269a976628b7a5f9eeb4e07",
-                "reference": "e97207d07d0385eac269a976628b7a5f9eeb4e07",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*",
-                "php": ">=5.3.2",
-                "symfony/event-dispatcher": ">=2.1"
-            },
-            "replace": {
-                "guzzle/batch": "self.version",
-                "guzzle/cache": "self.version",
-                "guzzle/common": "self.version",
-                "guzzle/http": "self.version",
-                "guzzle/inflection": "self.version",
-                "guzzle/iterator": "self.version",
-                "guzzle/log": "self.version",
-                "guzzle/parser": "self.version",
-                "guzzle/plugin": "self.version",
-                "guzzle/plugin-async": "self.version",
-                "guzzle/plugin-backoff": "self.version",
-                "guzzle/plugin-cache": "self.version",
-                "guzzle/plugin-cookie": "self.version",
-                "guzzle/plugin-curlauth": "self.version",
-                "guzzle/plugin-error-response": "self.version",
-                "guzzle/plugin-history": "self.version",
-                "guzzle/plugin-log": "self.version",
-                "guzzle/plugin-md5": "self.version",
-                "guzzle/plugin-mock": "self.version",
-                "guzzle/plugin-oauth": "self.version",
-                "guzzle/service": "self.version",
-                "guzzle/stream": "self.version"
-            },
-            "require-dev": {
-                "doctrine/cache": "*",
-                "monolog/monolog": "1.*",
-                "phpunit/phpunit": "3.7.*",
-                "psr/log": "1.0.*",
-                "symfony/class-loader": "*",
-                "zendframework/zend-cache": "2.0.*",
-                "zendframework/zend-log": "2.0.*"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.5-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Guzzle\\Tests": "tests/",
-                    "Guzzle": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
-                },
-                {
-                    "name": "Guzzle Community",
-                    "homepage": "https://github.com/guzzle/guzzle/contributors"
-                }
-            ],
-            "description": "Guzzle is a PHP HTTP client library and framework for building RESTful web service clients",
-            "homepage": "http://guzzlephp.org/",
-            "keywords": [
-                "client",
-                "curl",
-                "framework",
-                "http",
-                "http client",
-                "rest",
-                "web service"
-            ],
-            "time": "2013-05-13 20:17:47"
-        },
-        {
             "name": "guzzlehttp/guzzle",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "d687700d601f8b5f19b99ffc1c0f6af835a3c7b7"
+                "reference": "6d6c3a68fbea09c50b251553d59b9209b475e272"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/d687700d601f8b5f19b99ffc1c0f6af835a3c7b7",
-                "reference": "d687700d601f8b5f19b99ffc1c0f6af835a3c7b7",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/6d6c3a68fbea09c50b251553d59b9209b475e272",
+                "reference": "6d6c3a68fbea09c50b251553d59b9209b475e272",
                 "shasum": ""
             },
             "require": {
@@ -285,7 +195,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "6.0-dev"
+                    "dev-master": "6.1-dev"
                 }
             },
             "autoload": {
@@ -318,7 +228,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2015-08-15 20:48:15"
+            "time": "2015-10-05 21:30:32"
         },
         {
             "name": "guzzlehttp/promises",
@@ -488,16 +398,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "dev-master",
+            "version": "1.17.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "d58755629d665abe7955e87ecb0a7a17912670ad"
+                "reference": "0524c87587ab85bc4c2d6f5b41253ccb930a5422"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/d58755629d665abe7955e87ecb0a7a17912670ad",
-                "reference": "d58755629d665abe7955e87ecb0a7a17912670ad",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/0524c87587ab85bc4c2d6f5b41253ccb930a5422",
+                "reference": "0524c87587ab85bc4c2d6f5b41253ccb930a5422",
                 "shasum": ""
             },
             "require": {
@@ -560,39 +470,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2015-08-17 16:40:30"
-        },
-        {
-            "name": "pixeloution/true-random",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/pixeloution/true-random.git",
-                "reference": "a7209f6583915e50fcc6b841f26163adce40e7c3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/pixeloution/true-random/zipball/a7209f6583915e50fcc6b841f26163adce40e7c3",
-                "reference": "a7209f6583915e50fcc6b841f26163adce40e7c3",
-                "shasum": ""
-            },
-            "require": {
-                "guzzle/guzzle": "3.5.*",
-                "php": ">=5.3.2"
-            },
-            "require-dev": {
-                "mockery/mockery": "dev-master@dev",
-                "phpunit/phpunit": "3.7.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Pixeloution": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "description": "Interface for getting random datra from random.org",
-            "time": "2013-07-21 03:53:18"
+            "time": "2015-08-31 09:17:37"
         },
         {
             "name": "psr/http-message",
@@ -734,12 +612,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/dns.git",
-                "reference": "e61f53c03be1ee277d4dd9650412285a64a0a4d2"
+                "reference": "3fa027f1fe57e146203538c41db5b3e6c296b67a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/dns/zipball/e61f53c03be1ee277d4dd9650412285a64a0a4d2",
-                "reference": "e61f53c03be1ee277d4dd9650412285a64a0a4d2",
+                "url": "https://api.github.com/repos/reactphp/dns/zipball/3fa027f1fe57e146203538c41db5b3e6c296b67a",
+                "reference": "3fa027f1fe57e146203538c41db5b3e6c296b67a",
                 "shasum": ""
             },
             "require": {
@@ -768,7 +646,7 @@
                 "dns",
                 "dns-resolver"
             ],
-            "time": "2015-06-02 14:02:29"
+            "time": "2015-09-06 18:06:51"
         },
         {
             "name": "react/event-loop",
@@ -904,12 +782,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/socket-client.git",
-                "reference": "3cc3f860a6942ea5c0e0384c9b4ee27149753eff"
+                "reference": "5e3c4c60b14204660ffedc5e1d6813c708b2ce2c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/socket-client/zipball/3cc3f860a6942ea5c0e0384c9b4ee27149753eff",
-                "reference": "3cc3f860a6942ea5c0e0384c9b4ee27149753eff",
+                "url": "https://api.github.com/repos/reactphp/socket-client/zipball/5e3c4c60b14204660ffedc5e1d6813c708b2ce2c",
+                "reference": "5e3c4c60b14204660ffedc5e1d6813c708b2ce2c",
                 "shasum": ""
             },
             "require": {
@@ -938,7 +816,7 @@
             "keywords": [
                 "Socket"
             ],
-            "time": "2015-06-02 14:03:01"
+            "time": "2015-09-24 13:51:48"
         },
         {
             "name": "react/stream",
@@ -987,64 +865,6 @@
                 "stream"
             ],
             "time": "2014-09-10 03:32:31"
-        },
-        {
-            "name": "symfony/event-dispatcher",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/EventDispatcher.git",
-                "reference": "acac2b895752eae2f41a9fc16fc188ba5b71f582"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/acac2b895752eae2f41a9fc16fc188ba5b71f582",
-                "reference": "acac2b895752eae2f41a9fc16fc188ba5b71f582",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.9"
-            },
-            "require-dev": {
-                "psr/log": "~1.0",
-                "symfony/config": "~2.8|~3.0",
-                "symfony/dependency-injection": "~2.8|~3.0",
-                "symfony/expression-language": "~2.8|~3.0",
-                "symfony/phpunit-bridge": "~2.8|~3.0",
-                "symfony/stopwatch": "~2.8|~3.0"
-            },
-            "suggest": {
-                "symfony/dependency-injection": "",
-                "symfony/http-kernel": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\EventDispatcher\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony EventDispatcher Component",
-            "homepage": "https://symfony.com",
-            "time": "2015-07-01 20:40:29"
         },
         {
             "name": "zendframework/zend-escaper",
@@ -1096,12 +916,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-http.git",
-                "reference": "b5b2236547802678a25d019487f4950883fa93c8"
+                "reference": "88d395197acc3b11ce3a30bd4173a0746f9e2005"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-http/zipball/b5b2236547802678a25d019487f4950883fa93c8",
-                "reference": "b5b2236547802678a25d019487f4950883fa93c8",
+                "url": "https://api.github.com/repos/zendframework/zend-http/zipball/88d395197acc3b11ce3a30bd4173a0746f9e2005",
+                "reference": "88d395197acc3b11ce3a30bd4173a0746f9e2005",
                 "shasum": ""
             },
             "require": {
@@ -1138,7 +958,63 @@
                 "http",
                 "zf2"
             ],
-            "time": "2015-08-05 15:49:22"
+            "time": "2015-09-14 16:00:50"
+        },
+        {
+            "name": "zendframework/zend-hydrator",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/zend-hydrator.git",
+                "reference": "f3ed8b833355140350bbed98d8a7b8b66875903f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/zend-hydrator/zipball/f3ed8b833355140350bbed98d8a7b8b66875903f",
+                "reference": "f3ed8b833355140350bbed98d8a7b8b66875903f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5",
+                "zendframework/zend-stdlib": "^2.5.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "^2.0@dev",
+                "zendframework/zend-eventmanager": "^2.5.1",
+                "zendframework/zend-filter": "^2.5.1",
+                "zendframework/zend-inputfilter": "^2.5.1",
+                "zendframework/zend-serializer": "^2.5.1",
+                "zendframework/zend-servicemanager": "^2.5.1"
+            },
+            "suggest": {
+                "zendframework/zend-eventmanager": "^2.5.1, to support aggregate hydrator usage",
+                "zendframework/zend-filter": "^2.5.1, to support naming strategy hydrator usage",
+                "zendframework/zend-serializer": "^2.5.1, to use the SerializableStrategy",
+                "zendframework/zend-servicemanager": "^2.5.1, to support hydrator plugin manager usage"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev",
+                    "dev-develop": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Zend\\Hydrator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "homepage": "https://github.com/zendframework/zend-hydrator",
+            "keywords": [
+                "hydrator",
+                "zf2"
+            ],
+            "time": "2015-09-17 14:06:43"
         },
         {
             "name": "zendframework/zend-loader",
@@ -1190,12 +1066,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-log.git",
-                "reference": "33f868744ebaf440738bdc024a29be2cd9bf6029"
+                "reference": "8b8ff870720a459deca8e3c99da669a435ee3ff4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-log/zipball/33f868744ebaf440738bdc024a29be2cd9bf6029",
-                "reference": "33f868744ebaf440738bdc024a29be2cd9bf6029",
+                "url": "https://api.github.com/repos/zendframework/zend-log/zipball/8b8ff870720a459deca8e3c99da669a435ee3ff4",
+                "reference": "8b8ff870720a459deca8e3c99da669a435ee3ff4",
                 "shasum": ""
             },
             "require": {
@@ -1246,20 +1122,20 @@
                 "logging",
                 "zf2"
             ],
-            "time": "2015-07-20 17:43:38"
+            "time": "2015-09-03 05:42:44"
         },
         {
             "name": "zendframework/zend-servicemanager",
-            "version": "dev-develop",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-servicemanager.git",
-                "reference": "a4914dd73d7e5661a813db92bf26754a9605787b"
+                "reference": "f7225b1afbe5a78e41b98cec02f1d449087c689b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-servicemanager/zipball/a4914dd73d7e5661a813db92bf26754a9605787b",
-                "reference": "a4914dd73d7e5661a813db92bf26754a9605787b",
+                "url": "https://api.github.com/repos/zendframework/zend-servicemanager/zipball/f7225b1afbe5a78e41b98cec02f1d449087c689b",
+                "reference": "f7225b1afbe5a78e41b98cec02f1d449087c689b",
                 "shasum": ""
             },
             "require": {
@@ -1297,7 +1173,7 @@
                 "servicemanager",
                 "zf2"
             ],
-            "time": "2015-07-23 21:51:16"
+            "time": "2015-07-23 21:50:44"
         },
         {
             "name": "zendframework/zend-stdlib",
@@ -1305,18 +1181,20 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-stdlib.git",
-                "reference": "297c69931ebc0d17a454656fd3b63e3fb0098f1d"
+                "reference": "aeb109ffffbf9894a973fd1cb365566e4dfeda6f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-stdlib/zipball/297c69931ebc0d17a454656fd3b63e3fb0098f1d",
-                "reference": "297c69931ebc0d17a454656fd3b63e3fb0098f1d",
+                "url": "https://api.github.com/repos/zendframework/zend-stdlib/zipball/aeb109ffffbf9894a973fd1cb365566e4dfeda6f",
+                "reference": "aeb109ffffbf9894a973fd1cb365566e4dfeda6f",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5"
+                "php": ">=5.5",
+                "zendframework/zend-hydrator": "~1.0"
             },
             "require-dev": {
+                "athletic/athletic": "~0.1",
                 "fabpot/php-cs-fixer": "1.7.*",
                 "phpunit/phpunit": "~4.0",
                 "zendframework/zend-config": "~2.5",
@@ -1335,8 +1213,8 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.6-dev",
-                    "dev-develop": "2.7-dev"
+                    "dev-master": "2.7-dev",
+                    "dev-develop": "2.8-dev"
                 }
             },
             "autoload": {
@@ -1353,7 +1231,7 @@
                 "stdlib",
                 "zf2"
             ],
-            "time": "2015-07-21 17:11:52"
+            "time": "2015-09-25 04:11:15"
         },
         {
             "name": "zendframework/zend-uri",
@@ -1408,12 +1286,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-validator.git",
-                "reference": "03348a26e628d4b4a892f888d54dff069b47e57d"
+                "reference": "724f69f845f27e0436af7343a5bd5c9e7748bcaa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-validator/zipball/03348a26e628d4b4a892f888d54dff069b47e57d",
-                "reference": "03348a26e628d4b4a892f888d54dff069b47e57d",
+                "url": "https://api.github.com/repos/zendframework/zend-validator/zipball/724f69f845f27e0436af7343a5bd5c9e7748bcaa",
+                "reference": "724f69f845f27e0436af7343a5bd5c9e7748bcaa",
                 "shasum": ""
             },
             "require": {
@@ -1466,13 +1344,15 @@
                 "validator",
                 "zf2"
             ],
-            "time": "2015-07-22 22:21:39"
+            "time": "2015-09-03 19:14:39"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "coderstephen/slack-client": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

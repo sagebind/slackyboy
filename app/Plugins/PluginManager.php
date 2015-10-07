@@ -1,5 +1,4 @@
-<?php
-namespace Slackyboy\Plugins;
+<?php namespace Slackyboy\Plugins;
 
 use Slackyboy\Bot;
 
@@ -10,7 +9,7 @@ use Slackyboy\Bot;
 class PluginManager
 {
     /**
-     * @var array A map of plugin names to instances.
+     * @var PluginInterface[] A map of plugin names to instances.
      */
     protected $plugins;
 
@@ -29,10 +28,9 @@ class PluginManager
         $this->bot = $bot;
     }
 
-    public function getPlugin($name)
-    {
-    }
-
+    /**
+     * @return PluginInterface[]
+     */
     public function getPlugins()
     {
         return $this->plugins;
@@ -41,50 +39,50 @@ class PluginManager
     /**
      * Dynamically loads a plugin by name.
      *
-     * @param string $className
+     * @param string $className Fully qualified plugin class name
+     * @param array  $options   Options
+     *
      * @throws \Exception
      */
-    public function load($className)
+    public function load($className, $options)
     {
         if (!class_exists($className)) {
-            throw new \Exception('The plugin class "'.$className.'" could not be found.');
+            throw new \Exception('The plugin class "' . $className . '" could not be found.');
         }
 
         // make sure the class implements the plugin interface
         if (!in_array(PluginInterface::class, class_implements($className))) {
-            throw new \Exception('The class "'.$className.'" is not a plugin.');
+            throw new \Exception('The class "' . $className . '" is not a plugin.');
         }
 
         try {
+            /** @var PluginInterface $instance */
             $instance = new $className($this->bot, $this);
+
+            foreach ($options as $key => $value) {
+                if (property_exists($instance, $key)) {
+                    $instance->$key = $value;
+                } else {
+                    throw new \Exception('Unknown plugin parameter: ' . $key);
+                }
+            }
+
             $instance->enable();
             $this->plugins[$className] = $instance;
+
+            $this->bot->getApplication()->getLogger()->info('Plugin initialized: ' . $className);
         } catch (\Exception $exception) {
-            throw new \Exception('Error in loading plugin "'.$className.'"');
+            throw new \Exception('Error in loading plugin "' . $className . '": ' . $exception->getMessage());
         }
     }
 
     /**
      * Enables all loaded plugins.
-     *
-     * @return [type] [description]
      */
     public function enableAll()
     {
         foreach ($this->plugins as $plugin) {
             $plugin->enable();
-        }
-    }
-
-    /**
-     * Disables all loaded plugins.
-     *
-     * @return [type] [description]
-     */
-    public function disableAll()
-    {
-        foreach ($this->plugins as $plugin) {
-            $plugin->disable();
         }
     }
 }

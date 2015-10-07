@@ -1,5 +1,4 @@
-<?php
-namespace Slackyboy\Plugins;
+<?php namespace Slackyboy\Plugins;
 
 use Slackyboy\Bot;
 
@@ -9,7 +8,7 @@ use Slackyboy\Bot;
 interface PluginInterface
 {
     /**
-     * @param Bot $bot
+     * @param Bot           $bot
      * @param PluginManager $plugins
      */
     public function __construct(Bot $bot, PluginManager $plugins);
