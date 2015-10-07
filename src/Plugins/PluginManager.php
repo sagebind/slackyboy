@@ -29,10 +29,6 @@ class PluginManager
         $this->bot = $bot;
     }
 
-    public function getPlugin($name)
-    {
-    }
-
     public function getPlugins()
     {
         return $this->plugins;
