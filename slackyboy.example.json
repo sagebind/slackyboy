@@ -1,7 +1,6 @@
 {
   "log": "logs/bot.log",
   "plugins": {
-    "Slackyboy\\Plugins\\AdminControl\\Plugin": {},
     "Slackyboy\\Plugins\\Human\\Plugin": {}
   },
   "slack": {
