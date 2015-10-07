@@ -10,8 +10,6 @@ use Noodlehaus\Exception\FileNotFoundException;
  */
 class Application
 {
-    const VERSION = '@VERSION';
-
     /**
      * @var Config
      */
