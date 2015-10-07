@@ -33,7 +33,7 @@ class Plugin extends AbstractPlugin
                 $this->bot->getSlackClient()->getUsers()->then(function ($users) use ($message) {
                     $text = '';
                     foreach ($users as $user) {
-                        $text .= '@'.$user->getUsername()."\n";
+                        $text .= '@' . $user->getUsername() . "\n";
                     }
 
                     return $message->getChannel()->then(function (ChannelInterface $channel) use ($text) {
@@ -46,7 +46,7 @@ class Plugin extends AbstractPlugin
                 $responseText = 'I have these plugins loaded right now:';
 
                 foreach ($this->getPluginManager()->getPlugins() as $name => $instance) {
-                    $responseText .= "\n`".$name.'`';
+                    $responseText .= "\n`" . $name . '`';
                 }
 
                 $message->getChannel()->then(function (ChannelInterface $channel) use ($responseText) {
@@ -64,6 +64,7 @@ class Plugin extends AbstractPlugin
 
     /**
      * @param User $user
+     *
      * @return bool
      */
     public function userIsAdmin(User $user)
@@ -91,7 +92,6 @@ class Plugin extends AbstractPlugin
 
     /**
      * Formats a number of bytes to a user-friendly string.
-     *
      * Chris Jester-Young's implementation.
      *
      * @param int $size      The size in bytes.
@@ -101,9 +101,9 @@ class Plugin extends AbstractPlugin
      */
     protected function formatBytes($size, $precision = 2)
     {
-        $base = log($size, 1024);
-        $suffixes = array('', 'k', 'M', 'G', 'T');
+        $base     = log($size, 1024);
+        $suffixes = ['', 'k', 'M', 'G', 'T'];
 
-        return round(pow(1024, $base - floor($base)), $precision).' '.$suffixes[(int) $base].'B';
+        return round(pow(1024, $base - floor($base)), $precision) . ' ' . $suffixes[(int) $base] . 'B';
     }
 }
