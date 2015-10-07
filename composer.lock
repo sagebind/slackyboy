@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "756203f4c10ef8b6919783cca6a39dba",
-    "content-hash": "732aa9f9a7fccafb21dcb35a7bcdef9f",
+    "hash": "8fdfd346afa04caec8f95515a2644586",
+    "content-hash": "3741d43a671ff923b20f8e504fa6feb1",
     "packages": [
         {
             "name": "coderstephen/slack-client",
@@ -167,98 +167,6 @@
                 "event-emitter"
             ],
             "time": "2014-07-09 21:08:03"
-        },
-        {
-            "name": "guzzle/guzzle",
-            "version": "v3.5.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "e97207d07d0385eac269a976628b7a5f9eeb4e07"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/e97207d07d0385eac269a976628b7a5f9eeb4e07",
-                "reference": "e97207d07d0385eac269a976628b7a5f9eeb4e07",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*",
-                "php": ">=5.3.2",
-                "symfony/event-dispatcher": ">=2.1"
-            },
-            "replace": {
-                "guzzle/batch": "self.version",
-                "guzzle/cache": "self.version",
-                "guzzle/common": "self.version",
-                "guzzle/http": "self.version",
-                "guzzle/inflection": "self.version",
-                "guzzle/iterator": "self.version",
-                "guzzle/log": "self.version",
-                "guzzle/parser": "self.version",
-                "guzzle/plugin": "self.version",
-                "guzzle/plugin-async": "self.version",
-                "guzzle/plugin-backoff": "self.version",
-                "guzzle/plugin-cache": "self.version",
-                "guzzle/plugin-cookie": "self.version",
-                "guzzle/plugin-curlauth": "self.version",
-                "guzzle/plugin-error-response": "self.version",
-                "guzzle/plugin-history": "self.version",
-                "guzzle/plugin-log": "self.version",
-                "guzzle/plugin-md5": "self.version",
-                "guzzle/plugin-mock": "self.version",
-                "guzzle/plugin-oauth": "self.version",
-                "guzzle/service": "self.version",
-                "guzzle/stream": "self.version"
-            },
-            "require-dev": {
-                "doctrine/cache": "*",
-                "monolog/monolog": "1.*",
-                "phpunit/phpunit": "3.7.*",
-                "psr/log": "1.0.*",
-                "symfony/class-loader": "*",
-                "zendframework/zend-cache": "2.0.*",
-                "zendframework/zend-log": "2.0.*"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.5-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Guzzle\\Tests": "tests/",
-                    "Guzzle": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
-                },
-                {
-                    "name": "Guzzle Community",
-                    "homepage": "https://github.com/guzzle/guzzle/contributors"
-                }
-            ],
-            "description": "Guzzle is a PHP HTTP client library and framework for building RESTful web service clients",
-            "homepage": "http://guzzlephp.org/",
-            "keywords": [
-                "client",
-                "curl",
-                "framework",
-                "http",
-                "http client",
-                "rest",
-                "web service"
-            ],
-            "time": "2013-05-13 20:17:47"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -563,38 +471,6 @@
                 "psr-3"
             ],
             "time": "2015-08-31 09:17:37"
-        },
-        {
-            "name": "pixeloution/true-random",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/pixeloution/true-random.git",
-                "reference": "a7209f6583915e50fcc6b841f26163adce40e7c3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/pixeloution/true-random/zipball/a7209f6583915e50fcc6b841f26163adce40e7c3",
-                "reference": "a7209f6583915e50fcc6b841f26163adce40e7c3",
-                "shasum": ""
-            },
-            "require": {
-                "guzzle/guzzle": "3.5.*",
-                "php": ">=5.3.2"
-            },
-            "require-dev": {
-                "mockery/mockery": "dev-master@dev",
-                "phpunit/phpunit": "3.7.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Pixeloution": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "description": "Interface for getting random datra from random.org",
-            "time": "2013-07-21 03:53:18"
         },
         {
             "name": "psr/http-message",
@@ -991,64 +867,6 @@
             "time": "2014-09-10 03:32:31"
         },
         {
-            "name": "symfony/event-dispatcher",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "d4c62f292962ccbd396c4714413597c1e2c7d853"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/d4c62f292962ccbd396c4714413597c1e2c7d853",
-                "reference": "d4c62f292962ccbd396c4714413597c1e2c7d853",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.9"
-            },
-            "require-dev": {
-                "psr/log": "~1.0",
-                "symfony/config": "~2.8|~3.0",
-                "symfony/dependency-injection": "~2.8|~3.0",
-                "symfony/expression-language": "~2.8|~3.0",
-                "symfony/phpunit-bridge": "~2.8|~3.0",
-                "symfony/stopwatch": "~2.8|~3.0"
-            },
-            "suggest": {
-                "symfony/dependency-injection": "",
-                "symfony/http-kernel": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\EventDispatcher\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony EventDispatcher Component",
-            "homepage": "https://symfony.com",
-            "time": "2015-09-29 14:08:28"
-        },
-        {
             "name": "zendframework/zend-escaper",
             "version": "dev-develop",
             "source": {
@@ -1308,16 +1126,16 @@
         },
         {
             "name": "zendframework/zend-servicemanager",
-            "version": "dev-develop",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-servicemanager.git",
-                "reference": "a4914dd73d7e5661a813db92bf26754a9605787b"
+                "reference": "f7225b1afbe5a78e41b98cec02f1d449087c689b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-servicemanager/zipball/a4914dd73d7e5661a813db92bf26754a9605787b",
-                "reference": "a4914dd73d7e5661a813db92bf26754a9605787b",
+                "url": "https://api.github.com/repos/zendframework/zend-servicemanager/zipball/f7225b1afbe5a78e41b98cec02f1d449087c689b",
+                "reference": "f7225b1afbe5a78e41b98cec02f1d449087c689b",
                 "shasum": ""
             },
             "require": {
@@ -1355,7 +1173,7 @@
                 "servicemanager",
                 "zf2"
             ],
-            "time": "2015-07-23 21:51:16"
+            "time": "2015-07-23 21:50:44"
         },
         {
             "name": "zendframework/zend-stdlib",

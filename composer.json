@@ -14,7 +14,6 @@
         "coderstephen/slack-client": "0.2.*",
         "evenement/evenement": "2.0.*",
         "hassankhan/config": "0.8.*",
-        "pixeloution/true-random": "~1.0",
         "monolog/monolog": "~1.13",
         "react/event-loop": "0.4.*"
     },
