@@ -9,6 +9,7 @@ use Slack\ChannelInterface;
 use Slack\Payload;
 use Slack\RealTimeClient;
 use Slack\User;
+use Slackyboy\Plugins\PluginManager;
 
 /**
  * Main bot object that connects to Slack and emits useful bot-wide events.
@@ -30,9 +31,9 @@ class Bot
     protected $client;
 
     /**
-     * @var Plugins\PluginManager The bot-wide plugin manager.
+     * @var PluginManager The bot-wide plugin manager.
      */
-    protected $plugins;
+    protected $pluginManager;
 
     /**
      * @var User The user the bot is running as.
@@ -89,11 +90,11 @@ class Bot
     public function loadPlugins()
     {
         // create plugin manager and load plugins
-        $this->plugins = new Plugins\PluginManager($this);
+        $this->pluginManager = new PluginManager($this);
 
-        if($plugins = $this->app->getConfig()->get('plugins')) {
+        if ($plugins = $this->app->getConfig()->get('plugins')) {
             foreach ($plugins as $name => $options) {
-                $this->plugins->load($name);
+                $this->pluginManager->load($name, $options);
             }
         }
     }
