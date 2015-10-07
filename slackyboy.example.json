@@ -1,7 +1,9 @@
 {
   "log": "logs/bot.log",
   "plugins": {
-    "Slackyboy\\Plugins\\Human\\Plugin": {}
+    "Slackyboy\\Plugins\\Greetings\\Plugin": {
+      "greeting": "Howdy"
+    }
   },
   "slack": {
     "token": "SLACK-TOKEN"
