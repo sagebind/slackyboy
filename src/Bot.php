@@ -2,9 +2,7 @@
 namespace Slackyboy;
 
 use Evenement\EventEmitterTrait;
-use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
-use Noodlehaus\Config;
 use React\EventLoop;
 use React\EventLoop\LoopInterface;
 use Slack\ChannelInterface;
@@ -22,9 +20,9 @@ class Bot
     use EventEmitterTrait;
 
     /**
-     * @var Config A configuration object.
+     * @var Application
      */
-    protected $config;
+    protected $app;
 
     /**
      * @var RealTimeClient A Slack real-time messaging client.
@@ -47,23 +45,13 @@ class Bot
     protected $loop;
 
     /**
-     * @var Logger A logger for all bot-related logs.
-     */
-    protected $log;
-
-    /**
      * Creates a new bot instance.
      *
-     * @param Config $config
-     * @param Logger $logger
+     * @param Application $app
      */
-    public function __construct(Config $config, Logger $logger)
+    public function __construct(Application $app)
     {
-        // store config
-        $this->config = $config;
-
-        // store logger
-        $this->log = $logger;
+        $this->app = $app;
 
         // load plugins
         $this->loadPlugins();
@@ -72,7 +60,7 @@ class Bot
 
         // create an api client
         $this->client = new RealTimeClient($this->loop);
-        $this->client->setToken($this->config->get('slack.token'));
+        $this->client->setToken($this->app->getConfig()->get('slack.token'));
     }
 
     /**
@@ -82,17 +70,7 @@ class Bot
      */
     public function getLog()
     {
-        return $this->log;
-    }
-
-    /**
-     * Gets the bot configuration.
-     *
-     * @return Config The bot configuration.
-     */
-    public function getConfig()
-    {
-        return $this->config;
+        return $this->app->getLogger();
     }
 
     /**
@@ -113,8 +91,10 @@ class Bot
         // create plugin manager and load plugins
         $this->plugins = new Plugins\PluginManager($this);
 
-        foreach ($this->config->get('plugins') as $name => $options) {
-            $this->plugins->load($name);
+        if($plugins = $this->app->getConfig()->get('plugins')) {
+            foreach ($plugins as $name => $options) {
+                $this->plugins->load($name);
+            }
         }
     }
 
@@ -126,14 +106,14 @@ class Bot
         $this->client->on('message', function (Payload $data) {
             $message = new Message($this->client, $data->getData());
 
-            $this->log->info('Noticed message', [
+            $this->getLog()->info('Noticed message', [
                 'text' => $message->getText(),
             ]);
 
             $this->emit('message', [$message]);
 
             if ($message->matchesAny('/'.$this->botUser->getUsername().'/i')) {
-                $this->log->debug('Mentioned in message', [$message]);
+                $this->getLog()->debug('Mentioned in message', [$message]);
                 $this->emit('mention', [$message]);
             }
         });
@@ -142,7 +122,7 @@ class Bot
             return $this->client->getAuthedUser();
         })->then(function (User $user) {
             $this->botUser = $user;
-            $this->log->info('Bot user name is configured as '.$user->getUsername());
+            $this->getLog()->info('Bot user name is configured as '.$user->getUsername());
         });
 
         $this->loop->run();
@@ -156,7 +136,7 @@ class Bot
      */
     public function say($text, ChannelInterface $channel)
     {
-        $this->log->info('Sending new message');
+        $this->getLog()->info('Sending new message');
         $this->client->send($text, $channel);
     }
 
@@ -165,7 +145,7 @@ class Bot
      */
     public function quit()
     {
-        $this->log->info('Quitting now');
+        $this->getLog()->info('Quitting now');
         $this->client->disconnect();
     }
 
@@ -175,7 +155,7 @@ class Bot
     public function restart()
     {
         $this->quit();
-        $this->log->info('Restarting now');
+        $this->getLog()->info('Restarting now');
 
         global $argv;
         if (!pcntl_fork()) {

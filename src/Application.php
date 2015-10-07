@@ -4,6 +4,7 @@ namespace Slackyboy;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Noodlehaus\Config;
+use Noodlehaus\Exception\FileNotFoundException;
 
 /**
  * Class Application
@@ -11,6 +12,26 @@ use Noodlehaus\Config;
 class Application
 {
     const VERSION = '@VERSION';
+
+    /**
+     * @var Config
+     */
+    protected $config;
+
+    /**
+     * @var Logger
+     */
+    protected $logger;
+
+    public function getConfig()
+    {
+        return $this->config;
+    }
+
+    public function getLogger()
+    {
+        return $this->logger;
+    }
 
     public function run()
     {
@@ -21,11 +42,19 @@ class Application
             exit(0);
         }
 
-        $config = $this->getConfig($options);
-        $logger = $this->getLogger($config);
+        try {
+            $this->initConfig($options);
+            $this->initLogger();
 
-        $bot = new Bot($config, $logger);
-        $bot->run();
+            $bot = new Bot($this);
+            $bot->run();
+        } catch (FileNotFoundException $exception) {
+            echo 'Config file was not found. Use -c option to specify config path or provide slackyboy.json root file.', PHP_EOL;
+            exit(1);
+        } catch (\Exception $exception) {
+            echo $exception->getMessage(), PHP_EOL;
+            exit(2);
+        }
     }
 
     public function showHelp()
@@ -45,10 +74,8 @@ EOD;
 
     /**
      * @param array $options
-     *
-     * @return Config
      */
-    private function getConfig($options)
+    protected function initConfig($options)
     {
         if (isset($options['c']) || isset($options['config'])) {
             $file = isset($options['c']) ? $options['c'] : $options['config'];
@@ -56,31 +83,16 @@ EOD;
             $file = dirname(__DIR__) . '/slackyboy.json';
         }
 
-        try {
-            $config = new Config($file);
-        } catch (\Exception $exception) {
-            echo 'Config file was not found. Use -c option to specify config path or provide slackyboy.json root file.', PHP_EOL;
-            exit(1);
-        }
-
-        return $config;
+        $this->config = new Config($file);
     }
 
-    /**
-     * @param Config $config
-     *
-     * @return Logger
-     */
-    private function getLogger(Config $config)
+    protected function initLogger()
     {
-        // create a bot-wide log
-        $log = new Logger('bot');
+        $this->logger = new Logger('slackyboy');
 
-        if ($config->get('log')) {
-            // configure the log to write to the config-specified location
-            $log->pushHandler(new StreamHandler($config->get('log'), Logger::DEBUG));
+        if ($file = $this->config->get('log')) {
+            $this->logger->pushHandler(new StreamHandler($file, Logger::DEBUG));
         }
-
-        return $log;
     }
 }
+
