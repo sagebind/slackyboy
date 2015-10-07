@@ -6,10 +6,6 @@ namespace Slackyboy;
  */
 class Message extends \Slack\Message\Message
 {
-    public function isDirect()
-    {
-    }
-
     /**
      * Checks if the message text matches all of the given regular expressions.
      *
