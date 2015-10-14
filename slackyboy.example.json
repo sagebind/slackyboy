@@ -1,0 +1,13 @@
+{
+  "log": "logs/bot.log",
+  "plugins": {
+    "Slackyboy\\Plugins\\AdminControl\\Plugin": {},
+    "Slackyboy\\Plugins\\Config\\Plugin": {},
+    "Slackyboy\\Plugins\\Contributing\\Plugin": {},
+    "Slackyboy\\Plugins\\Human\\Plugin": {},
+    "Slackyboy\\Plugins\\RandomGenerator\\Plugin": {}
+  },
+  "slack": {
+    "token": "SLACK-TOKEN"
+  }
+}

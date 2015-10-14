@@ -3,7 +3,7 @@ namespace Slackyboy\Plugins\AdminControl;
 
 use Slackyboy\Message;
 use Slackyboy\Plugins\AbstractPlugin;
-use Slack\PostableInterface;
+use Slack\ChannelInterface;
 use Slack\User;
 
 /**
@@ -16,14 +16,14 @@ class Plugin extends AbstractPlugin
         // attach event handlers
         $this->bot->on('mention', function (Message $message) {
             if ($message->matchesAll('/quit/')) {
-                $message->getChannel()->then(function (PostableInterface $channel) {
+                $message->getChannel()->then(function (ChannelInterface $channel) {
                     $this->bot->say('Goodbye.', $channel);
                     $this->bot->quit();
                 });
             }
 
             if ($message->matchesAll('/restart|reboot/i')) {
-                $message->getChannel()->then(function (PostableInterface $channel) {
+                $message->getChannel()->then(function (ChannelInterface $channel) {
                     $this->bot->say('I am rebooting my systems. I\'ll be back momentarily.', $channel);
                     $this->bot->restart();
                 });
@@ -36,7 +36,7 @@ class Plugin extends AbstractPlugin
                         $text .= '@'.$user->getUsername()."\n";
                     }
 
-                    return $message->getChannel()->then(function (PostableInterface $channel) use ($text) {
+                    return $message->getChannel()->then(function (ChannelInterface $channel) use ($text) {
                         $this->bot->say($text, $channel);
                     });
                 });
@@ -49,13 +49,13 @@ class Plugin extends AbstractPlugin
                     $responseText .= "\n`".$name.'`';
                 }
 
-                $message->getChannel()->then(function (PostableInterface $channel) use ($responseText) {
+                $message->getChannel()->then(function (ChannelInterface $channel) use ($responseText) {
                     $this->bot->say($responseText, $channel);
                 });
             }
 
             if ($message->matchesAll('/stats|statistics/i')) {
-                $message->getChannel()->then(function (PostableInterface $channel) {
+                $message->getChannel()->then(function (ChannelInterface $channel) {
                     $this->showStats($channel);
                 });
             }
@@ -72,9 +72,9 @@ class Plugin extends AbstractPlugin
     }
 
     /**
-     * @param PostableInterface $channel
+     * @param ChannelInterface $channel
      */
-    public function showStats(PostableInterface $channel)
+    public function showStats(ChannelInterface $channel)
     {
         $startTime = new \DateTime();
         $startTime->setTimestamp($_SERVER['REQUEST_TIME']);
